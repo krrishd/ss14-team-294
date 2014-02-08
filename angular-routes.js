@@ -19,8 +19,11 @@ app.config([
     $routeProvider.when("/dashboard/loans", {
       templateUrl: "/dashboard-components/loans.html"
     });
-    return $routeProvider.when("/dashboard/quests", {
+    $routeProvider.when("/dashboard/quests", {
       templateUrl: "/dashboard-components/quests.html"
+    });
+    return $routeProvider.when("/dashboard/item", {
+      templateUrl: "/dashboard-components/item.html"
     });
   }
 ]);
