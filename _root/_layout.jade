@@ -11,12 +11,8 @@ html(ng-app="app")
     script(src="/bower_components/angular-route/angular-route.js")
     // Controllers
     script(src="angular-main.js")
-    script(src="register-ctrl.js") 
     script(src="angular-routes.js")
   body
-    div(ng-view)
-    input(ng-model="hi")
-    div.
-      {{hi}}
+    != yield
     footer.
         By James Mishra, Ari Falkner and Krish Dholakiya for Static Showdown and #hack4good.
