@@ -6,6 +6,7 @@
   "cache_control": {},
   "routes": {
     "/": "index.html",
-    "/**": "index.html"
+    "/**": "index.html",
+    "/**/**": "index.html
   }
 }
