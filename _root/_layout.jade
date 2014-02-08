@@ -1,11 +1,16 @@
+- var rand = Math.random();
 doctype
 html(ng-app="app")
   head
     title Elasticity
+<<<<<<< HEAD
     // The CSS links
     link(href="/main.css", rel="stylesheet", type="text/css")
     link(href="./bower_components/pure/pure.css", rel="stylesheet", type="text/css")
     // Boilerplate angular files
+=======
+    link(href="#{'/main.css?v=' + rand}", rel="stylesheet", type="text/css")
+>>>>>>> 772694508ec531259496ca003b265f7fc08ec72a
     script(src="/bower_components/angular/angular.min.js")
     script(src="/bower_components/angular-route/angular-route.js")
 
