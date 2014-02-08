@@ -1,8 +1,9 @@
+- var rand = Math.random();
 doctype
 html
   head
     title Elasticity
-    link(href="/main.css", rel="stylesheet", type="text/css")
+    link(href="#{'/main.css?v=' + rand}", rel="stylesheet", type="text/css")
     script(src="/bower_components/angular/angular.min.js")
     script(src="/bower_components/angular-route/angular-route.js")
 
