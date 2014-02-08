@@ -2,7 +2,7 @@ doctype
 html(ng-app="app")
   head
     title Elasticity
-<<<<<<< HEAD
+
     // The CSS links
     link(href="/main.css", rel="stylesheet", type="text/css")
     link(href="./bower_components/pure/pure.css", rel="stylesheet", type="text/css")
@@ -18,18 +18,5 @@ html(ng-app="app")
     div(ng-view)
     != yield
 
-=======
-    link(href="#{'/main.css?v=' + rand}", rel="stylesheet", type="text/css")
-    // The CSS links
-    link(href="/main.css", rel="stylesheet", type="text/css")
-    // Boilerplate angular files
-    script(src="/bower_components/angular/angular.min.js")
-    script(src="/bower_components/angular-route/angular-route.js")
-    // Controllers
-    script(src="angular-main.js")
-    script(src="angular-routes.js")
-  body
-    != yield
->>>>>>> d2bb951917b77a0bd43cd7d8107081c6e9a90f49
     footer.
         By James Mishra, Ari Falkner and Krish Dholakiya for Static Showdown and #hack4good.

@@ -8,5 +8,27 @@ app.config ['$routeProvider', ($routeProvider) ->
     templateUrl: './angular-templates/home.html'
   $routeProvider.when '/register', 
     templateUrl: './angular-templates/register.html',
-    controller: 'RegisterCtrl'
+    controller: 'RegisterCtrl'  
+
+  # Dashboard routes
+  $routeProvider.when "/dashboard",
+	   templateUrl: "/dashboard-components/marketplace.html"
+	  
+
+  $routeProvider.when "/dashboard/marketplace",
+	   templateUrl: "/dashboard-components/marketplace.html"
+	 
+
+  $routeProvider.when "/dashboard/statistics",
+	   templateUrl: "/dashboard-components/statistics.html"
+	
+
+  $routeProvider.when "/dashboard/loans",
+	   templateUrl: "/dashboard-components/loans.html"
+
+
+  $routeProvider.when "/dashboard/quests",
+	   templateUrl: "/dashboard-components/quests.html"
+
+
 ]
