@@ -1,23 +1,52 @@
-@import "//fonts.googleapis.com/css?family=Lato:300";
+@import "//fonts.googleapis.com/css?family=Raleway:300";
 @import "/bower_components/pure/pure-min.css";
 @import "/bower_components/ionicons/css/ionicons.min.css";
 @bg: url("/bg.jpg") fixed;
+@dashBG: #2c3e50;
+@textColor: #FFF;
+// Pure overrides
+
+.tabs .pure-button {
+	border-radius:0px !important;
+}
+
+// End Pure
 
 body {
-	font-family:Lato, sans-serif;
+	font-family:Raleway, sans-serif;
 	background: @bg;
 	background-size:cover;
-	h1, h2, h3 { font-weight:500; }
+	padding-bottom:35px;
+	h1, h2, h3 { font-weight:300; }
 }
 
 .dashboard {
 	max-width: 750px;
 	margin: 0 auto;
 	padding: 20px;
-	background: #1abc9c;
+	background: @dashBG;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	min-height: 400px;
+	color: @textColor;
+	.tabs {
+		position: relative;
+		left: -20px;
+	}
+	.cost-gdp, .item-slider {
+		display: inline-block;
+		vertical-align: bottom;
+		margin: 10px 25px;
+		background: rgba(255,255,255,.1);
+		padding: 10px;
+		min-height: 90px;
+	}
+	.item-pic {
+		display:block;
+		max-height: 200px;
+		border-radius: 3px;
+		border: 2px solid rgba(255,255,255,.2);
+	}
 }
 
 .icon {
@@ -31,6 +60,7 @@ footer {
 	left:50%;
 	margin-left:-50%;
 	text-align:center;
-	background: #1abc9c;
+	background: @dashBG;
 	padding:5px;
+	color: @textColor;
 }
