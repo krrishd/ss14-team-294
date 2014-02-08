@@ -1,1 +1,6 @@
-h1 hi
+form.pure-form(ng-submit='registerUser()')
+  input(type='text', placeholder='Username', ng-model='user.username', required)
+  input(type='email', placeholder='Email address', ng-model='user.email', required)
+  input(type='password', placeholder='Password', ng-model='user.password', required)
+
+  input.pure-button.pure-button-primary(type='submit', value='Register')
