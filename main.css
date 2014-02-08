@@ -1,1 +1,1 @@
-@import "//fonts.googleapis.com/css?family=Lato:300";body{font-family:Lato,sans-serif}body h1,body h2,body h3{font-weight:500}
+@import "//fonts.googleapis.com/css?family=Lato:300";@import "/bower_components/pure/pure-min.css";body{font-family:Lato,sans-serif}body h1,body h2,body h3{font-weight:500}
