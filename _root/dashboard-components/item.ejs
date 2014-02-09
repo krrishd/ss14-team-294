@@ -13,7 +13,7 @@
   <legend>You may be interested in lending to this entity due to your interest in purchasing a {{ item.info.name.toLowerCase() }}: </legend>
  
 
-  <h2><a href="http://{{loan.website_url}}">{{loan.name}}</a></h1>
+  <h2><a target="_blank" href="http://{{loan.website_url || 'kiva.org'}}">{{loan.name}}</a></h1>
   {{ loan.description }}
   <br /> <br />
   <em>Why you should loan: </em> {{ loan.loan_because || 'Your money will go to a good cause.' }}
