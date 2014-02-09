@@ -1,6 +1,6 @@
 # An individual page for an It
 
-app.controller 'ItemCtrl', ['$scope', '$routeParams', 'cityObject','cityId', ($scope, $routeParams, cityObject, cityId) ->
+app.controller 'ItemCtrl', ['$scope', '$routeParams', 'city', 'cityObject','cityId', ($scope, $routeParams, City, cityObject, cityId) ->
  
   # Grab a reference to the item
   itemName = $routeParams.itemName
@@ -21,16 +21,16 @@ app.controller 'ItemCtrl', ['$scope', '$routeParams', 'cityObject','cityId', ($s
   $scope.gdpComparision =
     labels: ['Decade', '20 years', '50 years', 'Century']
     datasets: [
-      fillColor: #7779Ed
-      strokeColor: #4A4DF0
-      pointColor: #29068A
-      pointStrokeColor: #1D0169
+      fillColor: '#7779Ed'
+      strokeColor: '#4A4DF0'
+      pointColor: '#29068A'
+      pointStrokeColor: '#1D0169'
       data: (city.getGdp year for year in [10, 20, 50, 100])
       ,
-      fillColor: #1CC414
-      strokeColor:#129C0B 
-      pointColor: #0B5C06
-      pointStrokeColor: #084205
+      fillColor: '#1CC414'
+      strokeColor: '#129C0B' 
+      pointColor: '#0B5C06'
+      pointStrokeColor: '#084205'
       data: (hypoCity.getGdp year for year in [10, 20, 50, 100])
     ]
 ]
