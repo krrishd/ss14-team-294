@@ -14,7 +14,9 @@
  
 
   <h2><a href="http://{{loan.website_url}}">{{loan.name}}</a></h1>
-  {{ loan.description }} 
+  {{ loan.description }}
+  <br /> <br />
+  <em>Why you should loan: </em> {{ loan.loan_because || 'Your money will go to a good cause.' }}
 </fieldset>
 
 </div>

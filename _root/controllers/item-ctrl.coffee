@@ -37,9 +37,12 @@ app.controller 'ItemCtrl', ['$resource', '$window', '$scope', '$routeParams', 'c
     city.addItem item
     city.save()
 
-  $resource('http://api.kivaws.org/v1/teams/search.json?q=Factory').get (data) ->
-    $scope.loan =  data.teams[0]
-
+  $resource('http://api.kivaws.org/v1/teams/search.json?q=' + itemName ).get (data) ->
+    if data.teams.length > 0
+      $scope.loan =  data.teams[0]
+    else
+      $resource('http://api.kivaws.org/v1/teams/search.json?category=Businesses').get (newData) ->
+        $scope.loan =  newData.teams[0]
   $scope.city = city
   $window.city = city
 ]
