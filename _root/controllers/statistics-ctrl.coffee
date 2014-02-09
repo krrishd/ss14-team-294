@@ -7,14 +7,17 @@ app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cit
     $scope.balance = city.getBalance()
     $scope.$apply()
 
+  updateBalance()
   setInterval(updateBalance, 1000)
 
   updateAge = ->
     $scope.age= city.getAge()
     $scope.$apply()
 
+  updateAge()
   setInterval(updateAge, 1000)
 
+  $scope.years = 0
 
   $window.city = city
   gdpArray = ([10, 20, 50, 100].map (n) -> city.getGdp n)

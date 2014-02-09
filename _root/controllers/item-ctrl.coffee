@@ -20,8 +20,14 @@ app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityOb
   # Set a bar chart to the city's GDP contigent on 
   # purchase decision
 
-  $scope.gdpComparison =
+  
 
+  updateBalance = ->
+    $scope.balance = city.getBalance()
+    $scope.$apply()
+
+  updateBalance()
+  setInterval(updateBalance, 1000)
 
   
   # A function to purchase items

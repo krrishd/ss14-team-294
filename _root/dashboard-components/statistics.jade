@@ -7,10 +7,10 @@ h1 Statistics
     | {{ age | number: 1}} years
 
   p Future Balance:
-    | <strong>{{ years | balance:city | number}}</strong> after <strong>{{ years | number }}</strong> years
+    | <strong>{{ years | balance:city}}</strong> after <strong>{{ years}}</strong> years
     br 
     br 
-    input(type="range", style="width: 500px", min=0, max=1000, ng-model="years")
+    input(type="range", style="width: 500px", min=0, max=100000, ng-model="years")
 
   h2 Projected GDP growth: 
   canvas(data="gdpGrowth", width=500, height=300, linechart)
