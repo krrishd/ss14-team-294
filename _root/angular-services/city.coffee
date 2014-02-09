@@ -11,7 +11,7 @@ class City
   
   getElementTotal = (coefficientLevel) ->
     return @assets.objects.reduce (total, element) ->
-      return total + element.gdpValue if gdpCoefficient == coefficientLevel 
+      return total + element.gdpValue if element.gdpType == coefficientLevel 
 
   getGdp: ->
     # Retrieve the linear coefficient total
@@ -23,9 +23,9 @@ class City
     years = @getAge()
 
     total = 
-      linTotal * Math.pow(years, 1) +
-      quadTotal * Math.pow(years, 2) +
-      cubeTotal * Math.pow(years, 3)
+      linTotal * Math.pow(years, gdpCoefficient.LIN) +
+      quadTotal * Math.pow(years, gdpCoefficient.QUAD) +
+      cubeTotal * Math.pow(years, gdpCoefficient.CUBE)
     return total
 
   # GDP intergrated
@@ -39,9 +39,9 @@ class City
     years = @getAge()
 
     total = 
-      ((linTotal * Math.pow(years, 2)) / 2) +
-      ((quadTotal * Math.pow(years, 3)) / 3) +
-      ((cubeTotal * Math.pow(years, 4)) / 4)
+      ((linTotal * Math.pow(years, gdpCoefficient.LIN + 1)) / 2) +
+      ((quadTotal * Math.pow(years, gdpCoefficient.QUAD + 1)) / 3) +
+      ((cubeTotal * Math.pow(years, gdpCoefficient.CUBE + 1)) / 4)
     return total
 
   getAge: ->
@@ -51,13 +51,6 @@ class City
   # Increases by 100 every year
   getPopulation: ->
     return @getAge() * 100
-
-
-  gdpCoefficients = 
-    LIN: 0
-    QUAD: 1
-    CUBE : 2
-
 
 appServices.factory 'city', ->
   return City()
