@@ -12,6 +12,7 @@ app.controller('ItemCtrl', [
     };
     updateBalance();
     setInterval(updateBalance, 1000);
+    $scope.ytd = 1;
     $scope.purchaseItem = function() {
       city.addItem(item);
       return city.save();

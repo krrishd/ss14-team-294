@@ -5,8 +5,8 @@ services.factory('gdpCoefficients', function() {
     QUAD: 2,
     CUBE: 3,
     LINCO: .2,
-    QUADCO: .7,
-    CUBECO: 1
+    QUADCO: .01,
+    CUBECO: .1
   };
   return gdpCoefficients;
 });

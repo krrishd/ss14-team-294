@@ -74,7 +74,7 @@ services.factory('city', [
         linTotal = this.getElementTotal('LIN');
         quadTotal = this.getElementTotal('QUAD');
         cubeTotal = this.getElementTotal('CUBE');
-        total = linTotal * Math.pow(gdpCoefficients.LINCO * years, gdpCoefficients.LIN) + quadTotal * Math.pow(gdpCoefficients.QUADCO * years, gdpCoefficients.QUAD) + cubeTotal * Math.pow(gdpCoefficients.CUBECO * years, gdpCoefficients.CUBE);
+        total = linTotal * Math.pow(years, gdpCoefficients.LINCO * gdpCoefficients.LIN) + quadTotal * Math.pow(years, gdpCoefficients.QUADCO * gdpCoefficients.QUAD) + cubeTotal * Math.pow(years, gdpCoefficients.CUBECO * gdpCoefficients.CUBE);
         return Math.round(total) || 0;
       };
 
@@ -83,7 +83,7 @@ services.factory('city', [
         linTotal = this.getElementTotal('LIN');
         quadTotal = this.getElementTotal('QUAD');
         cubeTotal = this.getElementTotal('CUBE');
-        total = ((linTotal * Math.pow(gdpCoefficients.LINCO * years, gdpCoefficients.LIN + 1)) / 2) + ((quadTotal * Math.pow(gdpCoefficients.QUADCO * years, gdpCoefficients.QUAD + 1)) / 3) + ((cubeTotal * Math.pow(gdpCoefficients.CUBECO * years, gdpCoefficients.CUBE + 1)) / 4);
+        total = ((linTotal * Math.pow(years, gdpCoefficients.LINCO * gdpCoefficients.LIN + 1)) / 2) + ((quadTotal * Math.pow(years, gdpCoefficients.QUADCO * gdpCoefficients.QUAD + 1)) / 3) + ((cubeTotal * Math.pow(years, gdpCoefficients.CUBECO * gdpCoefficients.CUBE + 1)) / 4);
         return Math.round(total) || 0;
       };
 
