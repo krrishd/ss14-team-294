@@ -5,10 +5,7 @@
 
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider.when '/', 
-    templateUrl: './angular-templates/home.html'
-  $routeProvider.when '/register', 
-    templateUrl: './angular-templates/register.html',
-    controller: 'RegisterCtrl'  
+    templateUrl: './angular-templates/home.html' 
 
   # Dashboard routes
   $routeProvider.when "/dashboard",

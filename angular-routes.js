@@ -3,10 +3,6 @@ app.config([
     $routeProvider.when('/', {
       templateUrl: './angular-templates/home.html'
     });
-    $routeProvider.when('/register', {
-      templateUrl: './angular-templates/register.html',
-      controller: 'RegisterCtrl'
-    });
     $routeProvider.when("/dashboard", {
       templateUrl: "/dashboard-components/marketplace.html"
     });
