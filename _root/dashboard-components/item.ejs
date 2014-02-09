@@ -5,7 +5,7 @@
 <div class="cost-gdp">
   <p class="item-cost">{{ item.info.cost + ' Credits' }}</p>
   <p class="your-credits"> {{ 'Your balance: ' + (city.getBalance() | number: 0) + ' credits.' }}</p>
-  <p class="item-gdp">{{ item.getGdpIncrease(1) + '% increase in GDP/year' }}</p>
+  <p class="item-gdp">{{ (item.getGdpIncrease(1) | number: 1) + '% increase in GDP/year' }}</p>
 </div>
 
 
