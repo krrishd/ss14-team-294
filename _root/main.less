@@ -49,14 +49,14 @@ body {
 		vertical-align: bottom;
 		margin: 10px 25px;
 		background: rgba(255,255,255,.1);
-		padding: 10px;
+		padding: 20px;
 		min-height: 90px;
 	}
 	.item-pic {
-		display:inline-block;
-		max-height: 200px;
-		border-radius: 3px;
-		border: 2px solid rgba(255,255,255,.2);
+		display: inline-block;
+		width: 50%;
+		border-radius: 10px;
+		margin-bottom: 15px;
 	}
 }
 
@@ -107,6 +107,14 @@ footer {
 .item-desc {
 	display: inline-block;
 	max-width: 300px;
-	vertical-align: bottom;
+	vertical-align: top;
 	margin: 10px;
+}
+
+a[ng-click="purchaseItem()"] {
+	display: inline-block;
+	vertical-align: top;
+	padding: 35px 70px;
+	font-size: 3em;
+	margin-top: 12px;
 }
