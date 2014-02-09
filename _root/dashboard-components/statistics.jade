@@ -1,21 +1,17 @@
 h1 Statistics
+.stats
+  p Current Balance:
+    | {{ city.getBalance() }}
 
-strong Current Balance:
-| {{ city.getBalance() }}
-
-input(type="range", ng-model="years", min=0, max=100)
-
-{{ years | gdp:city }}
-
-h2 Projected GDP growth: 
-canvas(data="gdpGrowth", width=500, height=300, linechart)
+  h2 Projected GDP growth: 
+  canvas(data="gdpGrowth", width=500, height=300, linechart)
 
 
-table.pure-table
-  tr
-    th Item
-    th Quantity
+  table.pure-table
+    tr
+      th Item
+      th Quantity
   
-  tr(ng-repeat="itemCount in itemCounts")
-    td {{ itemCount.name }}
-    td {{ itemCount.count }}
+    tr(ng-repeat="itemCount in itemCounts")
+      td {{ itemCount.name }}
+      td {{ itemCount.count }}
