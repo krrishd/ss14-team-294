@@ -9,7 +9,13 @@
   <p class="item-gdp">{{ (item.getGdpIncrease(ytd) | number: 1) }} % increase in GDP in {{ ytd }} years</p>
 </div>
 
+<fieldset>
+  <legend>You may be interested in lending to this entity due to your interest in purchasing a {{ item.info.name.toLowerCase() }}: </legend>
+ 
 
+  <h2><a href="http://{{loan.website_url}}">{{loan.name}}</a></h1>
+  {{ loan.description }} 
+</fieldset>
 
 </div>
 </div>
