@@ -29,14 +29,6 @@ app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cit
       data: gdpArray } 
     ]
 
-   $scope.itemChart =
-     [
-       {
-         value: 4,
-         color: "#d64343",
-         label: "Hello"
-       }
-     ]
 
    itemCounts = []
    addToCount = (item) ->
@@ -50,10 +42,27 @@ app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cit
    
    
    $resource('./content/marketplace.json').get (data) ->
-    addToCount item for item in data.content 
+     addToCount item for item in data.content 
 
-   $scope.itemCounts = itemCounts
+     $scope.itemCounts = itemCounts
 
+     itemLabels = itemCounts.map (i) ->
+       return i.name
+
+     itemNumbers = itemCounts.map (i) ->
+       return i.count
+
+     $scope.itemChart=
+       labels: itemLabels, 
+       datasets: [
+         { fillColor: '#7779Ed'
+         strokeColor: '#4A4DF0'
+         pointColor: '#29068A'
+         pointStrokeColor: '#1D0169'
+         data: itemNumbers } 
+       ]
+
+     $scope.$apply()
 ]
 
 filters.filter 'gdp', ->
