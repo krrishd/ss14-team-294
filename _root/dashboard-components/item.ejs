@@ -4,6 +4,6 @@
 <a ng-click="purchaseItem()" class="pure-button pure-button-primary">Buy</a>
 <div class="cost-gdp">
   <p class="item-cost">{{ item.info.cost + ' Credits' }}</p>
-  <p class="item-gdp">5% increase in GDP/year</p>
+  <p class="item-gdp">{{ item.getGdpIncrease(1) + '% increase in GDP/year' }}</p>
 </div>
 <!-- <canvas barchart options="options" data="gdpComparison" width="500" height="300"></canvas> -->
