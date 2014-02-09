@@ -1,0 +1,19 @@
+{
+    "content": [
+        {
+            "name": ""
+            "description": {
+                "short": "",
+                "long": ""
+            },
+            "goal": {
+                "type": ""
+                "value": 0
+            },
+            "reward": {
+                "type": "",
+                "value": 0
+            }
+        }
+    ]
+}
