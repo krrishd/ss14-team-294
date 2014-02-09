@@ -1,6 +1,6 @@
 # An individual page for an It
 
-app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityObject','cityId', 'FutureGdpFilter', ($window, $scope, $routeParams, City, cityObject, cityId, FutureGdpFilter) ->
+app.controller 'ItemCtrl', ['$resource', '$window', '$scope', '$routeParams', 'city', 'cityObject','cityId', 'FutureGdpFilter', ($resource, $window, $scope, $routeParams, City, cityObject, cityId, FutureGdpFilter) ->
  
   # Grab a reference to the item
   itemName = $routeParams.itemName
@@ -36,6 +36,9 @@ app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityOb
   $scope.purchaseItem = ->
     city.addItem item
     city.save()
+
+  $resource('http://api.kivaws.org/v1/teams/search.json?q=Factory').get (data) ->
+    $scope.loan =  data.teams[0]
 
   $scope.city = city
   $window.city = city
