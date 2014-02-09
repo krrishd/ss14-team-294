@@ -31,5 +31,5 @@ app.config ['$routeProvider', ($routeProvider) ->
 	   templateUrl: "/dashboard-components/quests.html"
 
   $routeProvider.when "/dashboard/item",
-           templateUrl: "/dashboard-components/item.html"
+     templateUrl: "/dashboard-components/item.html"
 ]
