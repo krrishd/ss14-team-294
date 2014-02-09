@@ -14,27 +14,29 @@ app.config ['$routeProvider', ($routeProvider) ->
   # Dashboard routes
   $routeProvider.when "/dashboard",
 	   templateUrl: "/dashboard-components/marketplace.html"
+     title: 'Dashboard'
 	  
 
   $routeProvider.when "/dashboard/marketplace/:itemName",
     templateUrl: "./dashboard-components/item.html",
     controller: "ItemCtrl"
+    title: 'Item'
 
   $routeProvider.when "/dashboard/marketplace",
 	   templateUrl: "/dashboard-components/marketplace.html"
 	   controller: "MarketCtrl" 
+     title: 'Marketplace'
 
   $routeProvider.when "/dashboard/statistics",
 	   templateUrl: "/dashboard-components/statistics.html"
-	
+	   title: 'Statistics'
 
   $routeProvider.when "/dashboard/loans",
 	   templateUrl: "/dashboard-components/loans.html"
-
+     title: 'Loans'
 
   $routeProvider.when "/dashboard/quests",
 	   templateUrl: "/dashboard-components/quests.html"
+     title: 'Quests'
 
-  $routeProvider.when "/dashboard/item",
-     templateUrl: "/dashboard-components/item.html"
 ]
