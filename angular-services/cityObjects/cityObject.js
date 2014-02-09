@@ -21,10 +21,9 @@ services.factory('cityObject', [
         var catalogDictionaryObject, outer;
         outer = this;
         catalogDictionaryObject = $resource('./content/marketplace.json').get(function(data) {
-          outer.info = (data.content.filter(function(item) {
+          return outer.info = (data.content.filter(function(item) {
             return item.name.toLowerCase().replace(' ', '-') === type.toLowerCase().replace(' ', '-');
           }))[0];
-          return $window.console.log(outer.info);
         });
       }
 

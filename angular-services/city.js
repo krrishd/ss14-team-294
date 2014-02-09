@@ -1,8 +1,9 @@
 services.factory('city', [
-  'gdpCoefficients', 'cityObject', function(gdpCoefficients, cityObject) {
+  '$window', 'gdpCoefficients', 'cityObject', function($window, gdpCoefficients, cityObject) {
     var City;
     return City = (function() {
       function City(cityId) {
+        this.cityId = cityId;
         this.assets = localStorage['cities.' + cityId] ? JSON.parse(localStorage['cities.' + cityId]) : new Object();
         if (typeof this.assets.creationDate === 'undefined') {
           this.assets.creationDate = new Date();
@@ -10,27 +11,33 @@ services.factory('city', [
         this.assets.objects = this.assets.objects || [];
       }
 
+      City.prototype.save = function() {
+        return localStorage['cities.' + this.cityId] = JSON.stringify(this.assets);
+      };
+
       City.prototype.getElementTotal = function(coefficientLevel) {
         try {
           return this.assets.objects.reduce(function(total, element) {
-            return total + element.benefit[coefficientLevel];
+            if (typeof total === 'number') {
+              return total + element.info.benefit[coefficientLevel];
+            } else {
+              return 0;
+            }
           });
         } catch (_error) {
-          return [];
+          return 0;
         }
       };
 
       City.prototype.addItem = function(item) {
-        var object;
-        object = new cityObject(item);
         return this.assets.objects.push(item);
       };
 
       City.prototype.getGdp = function(years) {
         var cubeTotal, linTotal, quadTotal, total;
-        linTotal = this.getElementTotal(gdpCoefficients.LIN);
-        quadTotal = this.getElementTotal(gdpCoefficients.QUAD);
-        cubeTotal = this.getElementTotal(gdpCoefficients.CUBE);
+        linTotal = this.getElementTotal('LIN');
+        quadTotal = this.getElementTotal('QUAD');
+        cubeTotal = this.getElementTotal('CUBE');
         total = linTotal * Math.pow(years, gdpCoefficients.LIN) + quadTotal * Math.pow(years, gdpCoefficients.QUAD) + cubeTotal * Math.pow(years, gdpCoefficients.CUBE);
         return total || 0;
       };
