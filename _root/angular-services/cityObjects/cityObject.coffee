@@ -1,4 +1,4 @@
-services.factory 'cityObject', ['$resource', ->
+services.factory 'cityObject', ['$resource', '$window', ($resource, $window) ->
       
   # The template of all city objects
 
@@ -19,9 +19,12 @@ services.factory 'cityObject', ['$resource', ->
 
     # Retrieves information on the item when being initialized
     constructor: (type) ->
-      catalogDictionaryObject = $resource('./content/marketplace.json').get()
-      @info = catalogDictionaryObject.content.filter (item) ->
-        return item.name == type
+
+      outer = @
+      catalogDictionaryObject = $resource('./content/marketplace.json').get (data) ->
+        outer.info = (data.content.filter (item) ->
+          return item.name == type)[0]
+        $window.console.log(@info)
     
   return CityObject
 ]

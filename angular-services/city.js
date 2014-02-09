@@ -1,7 +1,7 @@
 var City;
 
 City = (function() {
-  var gdpCoefficients, getElementTotal;
+  var getElementTotal;
 
   function City(cityId) {
     this.assets = localStorage['cities.' + cityId] ? JSON.parse(localStorage['cities.' + cityId]) : new Object();
@@ -15,7 +15,7 @@ City = (function() {
 
   getElementTotal = function(coefficientLevel) {
     return this.assets.objects.reduce(function(total, element) {
-      if (gdpCoefficient === coefficientLevel) {
+      if (element.gdpType === coefficientLevel) {
         return total + element.gdpValue;
       }
     });
@@ -27,7 +27,7 @@ City = (function() {
     quadTotal = getElementTotal(gdpCoefficient.QUAD);
     cubeTotal = getElementTotal(gdpCoefficient.CUBE);
     years = this.getAge();
-    total = linTotal * Math.pow(years, 1) + quadTotal * Math.pow(years, 2) + cubeTotal * Math.pow(years, 3);
+    total = linTotal * Math.pow(years, gdpCoefficient.LIN) + quadTotal * Math.pow(years, gdpCoefficient.QUAD) + cubeTotal * Math.pow(years, gdpCoefficient.CUBE);
     return total;
   };
 
@@ -37,7 +37,7 @@ City = (function() {
     quadTotal = getElementTotal(gdpCoefficient.QUAD);
     cubeTotal = getElementTotal(gdpCoefficient.CUBE);
     years = this.getAge();
-    total = ((linTotal * Math.pow(years, 2)) / 2) + ((quadTotal * Math.pow(years, 3)) / 3) + ((cubeTotal * Math.pow(years, 4)) / 4);
+    total = ((linTotal * Math.pow(years, gdpCoefficient.LIN + 1)) / 2) + ((quadTotal * Math.pow(years, gdpCoefficient.QUAD + 1)) / 3) + ((cubeTotal * Math.pow(years, gdpCoefficient.CUBE + 1)) / 4);
     return total;
   };
 
@@ -51,20 +51,14 @@ City = (function() {
     return this.getAge() * 100;
   };
 
-  gdpCoefficients = {
-    LIN: 0,
-    QUAD: 1,
-    CUBE: 2
-  };
-
   return City;
 
 })();
 
-appServices.factory('city', function() {
+services.factory('city', function() {
   return City();
 });
 
-appServices.factory('cityId', function() {
+services.factory('cityId', function() {
   return 0;
 });

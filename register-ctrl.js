@@ -1,5 +1,7 @@
 app.controller('RegisterCtrl', [
-  '$scope', function($scope) {
-    return $scope.registerUser = function() {};
+  '$scope', '$resource', '$window', function($scope, $resource, $window) {
+    return $scope.registerUser = function() {
+      return $window.h = $resource('./content/marketplace.json').get();
+    };
   }
 ]);
