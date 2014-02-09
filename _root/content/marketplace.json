@@ -1,15 +1,106 @@
 {
     "content": [
         {
-            "name": "",
-            "description": "",
+            "name": "Shovel",,
+            "description": "A shovel is a pretty basic agricultural"
+            + " tool, but have you ever tried farming without one?",
             "kiva_category": 0,
             "benefit": 0,
-            "cost": 0,
-            "icon": {
-                "small": "",
-                "large": ""
-            }
+            "cost": 0
+        },
+        {
+            "name": "Tractor",
+            "description": "A tractor is a machine that can massively"
+            + " increase the efficiency of a farm. Buying a tractor"
+            + " is one of the most straightforward ways to raise your"
+            + " GDP.",
+            "kiva_category": "Agriculture",
+            "benefit": 500,
+            "cost": 100 
+        },
+        {
+            "name": "Cow",
+            "description": "The Hindu religion considers cows to be holy,"
+            + " and when you see how useful these bovine animals are,"
+            + " a healthy respect (or even religious reverence) for these"
+            + " animals makes a lot of sense."
+            "kiva_category": "Food",
+            "benefit": 200,
+            "cost": 50
+        },
+        {
+            "name": "Schoolhouse",
+            "description": "A village is full of elders that can pass"
+            + " down their wisdom, even though most of them will not"
+            + " have formal training. A Schoolhouse gives your village"
+            + " or city a place to gather the young to learn from the"
+            + " wise."
+            "kiva_category": "Education",
+            "benefit": 200,
+            "cost": 50
+        },
+        {
+            "name": "Dirt Road",
+            "description": "A dirt road is cheap, but making one creates"
+            + " a massive efficiency increase over just traveling through"
+            + " untamed land. Ultimately, dirt roads are essential for"
+            + " any early stage village to be able to trade without"
+            + " paying too much in travel costs."
+        },
+        {
+            "name": "Paved Road",
+            "description": "For the villages and cities with a little"
+            + " bit more money, a paved road will last longer than a"
+            + " dirt road, and represents a greater efficiency increase"
+            + " too."
+        },
+        {
+            "name": "Corner Shop",
+            "description": "Back in the day, everbody made the goods they"
+            + " needed to live: food, soap, clothing, furniture, and more."
+            + " The problem is making all of that was difficult and took"
+            + " most of people's time. By relying on specialists to"
+            + " produce each category of merchandise, and then selling"
+            + " that merchandise in a store, we can produce massive"
+            + " increases in efficiency."
+        },
+        {
+            "name": "Market",
+            "description": "A corner shop is great for a village with"
+            + " fewer people and fewer needs than a medium-sized city,"
+            + " but a successful village will eventually need a more"
+            + " serious location for commerce."
+        },
+        {
+            "name": "Supermarket",
+            "description": "Every industrialized city in the world"
+            + " has several, and if your city is big enough, your"
+            + " residents could also benefit from a supermarket."
+        },
+        {
+            "name": "Solar Panels",
+            "description": "Modern technology relies on energy, and most"
+            + " forms of energy require a complicated infrastructure."
+            + " A solar panel system allows your village to use basic"
+            + " electronics without having to invest in a significant"
+            + " amount of infrastructure."
+        },
+        {
+            "name": "Power Plant",
+            "description": "Solar panels are great for energy... but not"
+            + " when the weather is bad or at night. When your village's"
+            + " energy demands increase, a power plant can provide"
+            + " exactly what is needed."
+        },
+        {
+            "name": "Sewing Machine",
+            "description": 
+        },
+        {
+            "name": "Milling Machine"
+        },
+        {
+            "name": "Factory"
         }
     ]
 }
