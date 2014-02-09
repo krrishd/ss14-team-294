@@ -1,6 +1,15 @@
+
+app.filter 'FutureGdp', ->
+  return (input, item) ->
+
+    gdpIncreaseArray = input.map (n) ->
+      n + item.getGdpIncrease n
+
+    return gdpIncreaseArray
+
 # An individual page for an It
 
-app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityObject','cityId', ($window, $scope, $routeParams, City, cityObject, cityId) ->
+app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityObject','cityId',  ($window, $scope, $routeParams, City, cityObject, cityId) ->
  
   # Grab a reference to the item
   itemName = $routeParams.itemName
@@ -16,8 +25,6 @@ app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityOb
   $scope.city = city
 
   gdpArray = ([10, 20, 50, 100].map (n) -> city.getGdp n)
-  #  gdpIncreaseArray = gdpArray.map (n) ->
-  # n + item.getGdpIncrease n
 
   # Set a bar chart to the city's GDP contigent on 
   # purchase decision
@@ -48,3 +55,4 @@ app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityOb
   $scope.city = city
   $window.city = city
 ]
+
