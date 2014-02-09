@@ -26,6 +26,7 @@ class City
       linTotal * Math.pow(years, 1) +
       quadTotal * Math.pow(years, 2) +
       cubeTotal * Math.pow(years, 3)
+   return total
 
   # GDP intergrated
   getTotal: ->
@@ -41,6 +42,7 @@ class City
       ((linTotal * Math.pow(years, 2)) / 2) +
       ((quadTotal * Math.pow(years, 3)) / 3) +
       ((cubeTotal * Math.pow(years, 4)) / 4)
+   return total
 
   getAge: ->
     today = new Date()
