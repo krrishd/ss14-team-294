@@ -4,7 +4,7 @@
 <a ng-click="purchaseItem()" class="pure-button pure-button-primary">Buy</a>
 <div class="cost-gdp">
   <p class="item-cost">{{ item.info.cost + ' Credits' }}</p>
-  <p class="your-credits"> {{ 'Your balance: ' + (city.getBalance() | number: 0) + ' credits.' }}</p>
+  <p class="your-credits"> {{ 'Your balance: ' + (balance | number: 0) + ' credits.' }}</p>
   <p class="item-gdp">{{ (item.getGdpIncrease(1) | number: 1) + '% increase in GDP/year' }}</p>
 </div>
 
