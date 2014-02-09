@@ -17,8 +17,14 @@ app.controller('ItemCtrl', [
       city.addItem(item);
       return city.save();
     };
-    $resource('http://api.kivaws.org/v1/teams/search.json?q=Factory').get(function(data) {
-      return $scope.loan = data.teams[0];
+    $resource('http://api.kivaws.org/v1/teams/search.json?q=' + itemName).get(function(data) {
+      if (data.teams.length > 0) {
+        return $scope.loan = data.teams[0];
+      } else {
+        return $resource('http://api.kivaws.org/v1/teams/search.json?category=Businesses').get(function(newData) {
+          return $scope.loan = newData.teams[0];
+        });
+      }
     });
     $scope.city = city;
     return $window.city = city;
