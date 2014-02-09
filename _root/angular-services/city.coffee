@@ -59,5 +59,8 @@ class City
     CUBE : 2
 
 
-app.factory 'city', ->
+appServices.factory 'city', ->
   return City()
+
+appServices.factory 'cityId', ->
+  return 0
