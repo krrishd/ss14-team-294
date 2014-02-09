@@ -3,6 +3,13 @@ app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cit
 
   $scope.city = city
   
+  updateGdp = ->
+    $scope.GDP = city.getGdpCurrent()
+    $scope.$apply()
+
+  updateGdp()
+  setInterval(updateGdp, 1000)
+
   updateBalance = ->
     $scope.balance = city.getBalance()
     $scope.$apply()
