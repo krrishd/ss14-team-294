@@ -22,7 +22,7 @@ app.config ['$routeProvider', ($routeProvider) ->
 
   $routeProvider.when "/dashboard/marketplace",
 	   templateUrl: "/dashboard-components/marketplace.html"
-	 
+	   controller: "MarketCtrl" 
 
   $routeProvider.when "/dashboard/statistics",
 	   templateUrl: "/dashboard-components/statistics.html"
