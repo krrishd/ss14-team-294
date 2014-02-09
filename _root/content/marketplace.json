@@ -2,6 +2,7 @@
     "content": [
         {
             "name": "Shovel",
+<<<<<<< HEAD
             "description": "A shovel is a pretty basic agricultural tool, but have you ever tried farming without one?",
             "kiva_category": "Agriculture",
             "benefit": {
@@ -10,6 +11,13 @@
                 "CUBE": 1
             },
             "cost": 100
+=======
+            "description": "A shovel is a pretty basic agricultural"
+            + " tool, but have you ever tried farming without one?",
+            "kiva_category": 0,
+            "benefit": 0,
+            "cost": 0
+>>>>>>> b1c9cf7266f5dde62935c4c6a4b28c845881e33e
         },
         {
             "name": "Tractor",
@@ -24,7 +32,14 @@
         },
         {
             "name": "Cow",
+<<<<<<< HEAD
             "description": "The Hindu religion considers cows to be holy, and when you see how useful these bovine animals are, a healthy respect (or even religious reverence) for these animals makes a lot of sense.",
+=======
+            "description": "The Hindu religion considers cows to be holy,"
+            + " and when you see how useful these bovine animals are,"
+            + " a healthy respect (or even religious reverence) for these"
+            + " animals makes a lot of sense.",
+>>>>>>> b1c9cf7266f5dde62935c4c6a4b28c845881e33e
             "kiva_category": "Food",
             "benefit": {
                 "LIN": 3,
