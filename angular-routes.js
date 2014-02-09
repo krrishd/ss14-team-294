@@ -18,22 +18,19 @@ app.config([
     });
     $routeProvider.when("/dashboard/marketplace", {
       templateUrl: "/dashboard-components/marketplace.html",
-      controller: "MarketCtrl"
-    }, {
+      controller: "MarketCtrl",
       title: 'Marketplace'
     });
     $routeProvider.when("/dashboard/statistics", {
       templateUrl: "/dashboard-components/statistics.html",
-      title: 'Statistics'
+      controller: "StatisticsCtrl"
     });
     $routeProvider.when("/dashboard/loans", {
-      templateUrl: "/dashboard-components/loans.html"
-    }, {
+      templateUrl: "/dashboard-components/loans.html",
       title: 'Loans'
     });
     return $routeProvider.when("/dashboard/quests", {
-      templateUrl: "/dashboard-components/quests.html"
-    }, {
+      templateUrl: "/dashboard-components/quests.html",
       title: 'Quests'
     });
   }
