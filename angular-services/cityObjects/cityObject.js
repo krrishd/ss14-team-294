@@ -1,12 +1,16 @@
 services.factory('cityObject', [
-  '$resource', '$window', function($resource, $window) {
+  '$resource', '$window', 'gdpCoefficients', function($resource, $window, gdpCoefficients) {
     var CityObject;
     CityObject = (function() {
       CityObject.prototype.getGdpIncreasePercentage = function(city, years) {
         var gdpIncrease, percentage;
-        gdpIncrease = this.gdpValue * Math.pow(years, this.gdpType);
-        percentage = gdpIncrease / (gdpIncrease + city.getGdp());
+        gdpIncrease = this.getGdpIncrease(years);
+        percentage = gdpIncrease / (gdpIncrease + city.getGdpCurrent());
         return percentage;
+      };
+
+      CityObject.prototype.getGdpIncrease = function(years) {
+        return this.info.benefit.LIN * Math.pow(years, gdpCoefficients.LIN) + this.info.benefit.QUAD * Math.pow(years, gdpCoefficients.QUAD) + this.info.benefit.CUBE * Math.pow(years, gdpCoefficients.CUBE);
       };
 
       CityObject.prototype.getKivaSector = function() {

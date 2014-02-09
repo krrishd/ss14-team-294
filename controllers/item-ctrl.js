@@ -1,12 +1,14 @@
 app.controller('ItemCtrl', [
   '$window', '$scope', '$routeParams', 'city', 'cityObject', 'cityId', function($window, $scope, $routeParams, City, cityObject, cityId) {
-    var city, hypoCity, item, itemName;
+    var city, gdpArray, item, itemName;
     itemName = $routeParams.itemName;
     item = new cityObject(itemName);
     $scope.item = item;
     city = new City(cityId);
-    hypoCity = new City(cityId);
-    hypoCity.addItem(item);
+    $scope.city = city;
+    gdpArray = [10, 20, 50, 100].map(function(n) {
+      return city.getGdp(n);
+    });
     $scope.gdpComparison = {
       labels: ['Decade', '20 years', '50 years', 'Century'],
       datasets: [
@@ -15,17 +17,13 @@ app.controller('ItemCtrl', [
           strokeColor: '#4A4DF0',
           pointColor: '#29068A',
           pointStrokeColor: '#1D0169',
-          data: [10, 20, 50, 100].map(function(n) {
-            return city.getGdp(n);
-          })
+          data: gdpArray
         }, {
           fillColor: '#1CC414',
           strokeColor: '#129C0B',
           pointColor: '#0B5C06',
           pointStrokeColor: '#084205',
-          data: [10, 20, 50, 100].map(function(n) {
-            return hypoCity.getGdp;
-          })
+          data: gdpArray
         }
       ]
     };

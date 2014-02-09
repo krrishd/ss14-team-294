@@ -16,21 +16,53 @@ services.factory('city', [
       };
 
       City.prototype.getElementTotal = function(coefficientLevel) {
-        try {
-          return this.assets.objects.reduce(function(total, element) {
-            if (typeof total === 'number') {
-              return total + element.info.benefit[coefficientLevel];
-            } else {
-              return 0;
-            }
-          });
-        } catch (_error) {
+        if (this.assets.objects.length > 1) {
+          try {
+            return this.assets.objects.reduce(function(total, element) {
+              if (typeof total === 'number') {
+                return total + element.info.benefit[coefficientLevel];
+              } else {
+                return 0;
+              }
+            });
+          } catch (_error) {
+            return 0;
+          }
+        }
+      };
+
+      City.prototype.getSpendingTotal = function() {
+        return Math.round(this.getSpendingTotalRaw());
+      };
+
+      City.prototype.getSpendingTotalRaw = function() {
+        if (this.assets.objects.length > 1) {
+          try {
+            return this.assets.objects.reduce(function(total, element) {
+              if (typeof total === 'number') {
+                return total + element.info.cost;
+              } else {
+                return 0;
+              }
+            });
+          } catch (_error) {
+            return 0;
+          }
+        } else {
           return 0;
         }
       };
 
+      City.prototype.getBalance = function() {
+        return this.getTotalCurrent() - this.getSpendingTotal() + 1000;
+      };
+
       City.prototype.addItem = function(item) {
-        return this.assets.objects.push(item);
+        if ((this.getBalance() - item.info.cost) > 0) {
+          return this.assets.objects.push(item);
+        } else {
+          return $window.alert('This item is too expensive');
+        }
       };
 
       City.prototype.getGdp = function(years) {
@@ -44,9 +76,9 @@ services.factory('city', [
 
       City.prototype.getTotal = function(years) {
         var cubeTotal, linTotal, quadTotal, total;
-        linTotal = this.getElementTotal(gdpCoefficients.LIN);
-        quadTotal = this.getElementTotal(gdpCoefficients.QUAD);
-        cubeTotal = this.getElementTotal(gdpCoefficients.CUBE);
+        linTotal = this.getElementTotal('LIN');
+        quadTotal = this.getElementTotal('QUAD');
+        cubeTotal = this.getElementTotal('CUBE');
         total = ((linTotal * Math.pow(years, gdpCoefficients.LIN + 1)) / 2) + ((quadTotal * Math.pow(years, gdpCoefficients.QUAD + 1)) / 3) + ((cubeTotal * Math.pow(years, gdpCoefficients.CUBE + 1)) / 4);
         return total || 0;
       };
@@ -62,7 +94,7 @@ services.factory('city', [
       City.prototype.getAge = function() {
         var today;
         today = new Date();
-        return (today() - this.assets.creationDate) / (1000 * 60 * 60);
+        return (today - (new Date(this.assets.creationDate))) / (1000 * 60 * 60);
       };
 
       City.prototype.getPopulation = function() {
