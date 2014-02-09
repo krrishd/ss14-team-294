@@ -10,11 +10,9 @@ app.config ['$routeProvider', ($routeProvider) ->
   # Dashboard routes
   $routeProvider.when "/dashboard",
 	   templateUrl: "/dashboard-components/marketplace.html"
-	  
 
   $routeProvider.when "/dashboard/marketplace",
 	   templateUrl: "/dashboard-components/marketplace.html"
-	 
 
   $routeProvider.when "/dashboard/statistics",
 	   templateUrl: "/dashboard-components/statistics.html"
