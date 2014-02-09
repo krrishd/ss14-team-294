@@ -22,9 +22,9 @@ services.factory('cityObject', [
         outer = this;
         catalogDictionaryObject = $resource('./content/marketplace.json').get(function(data) {
           outer.info = (data.content.filter(function(item) {
-            return item.name === type;
+            return item.name.toLowerCase().replace(' ', '-') === type.toLowerCase().replace(' ', '-');
           }))[0];
-          return $window.console.log(this.info);
+          return $window.console.log(outer.info);
         });
       }
 

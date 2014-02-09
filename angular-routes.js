@@ -8,28 +8,34 @@ app.config([
       templateUrl: './angular-templates/home.html'
     });
     $routeProvider.when("/dashboard", {
-      templateUrl: "/dashboard-components/marketplace.html",
-      controller: "MarketCtrl"
+      templateUrl: "/dashboard-components/marketplace.html"
+    }, {
+      title: 'Dashboard'
     });
-    $routeProvider.when("/dashboard/marketplace/:item", {
+    $routeProvider.when("/dashboard/marketplace/:itemName", {
       templateUrl: "./dashboard-components/item.html",
-      controller: "ItemCtrl"
+      controller: "ItemCtrl",
+      title: 'Item'
     });
     $routeProvider.when("/dashboard/marketplace", {
       templateUrl: "/dashboard-components/marketplace.html",
       controller: "MarketCtrl"
+    }, {
+      title: 'Marketplace'
     });
     $routeProvider.when("/dashboard/statistics", {
-      templateUrl: "/dashboard-components/statistics.html"
+      templateUrl: "/dashboard-components/statistics.html",
+      title: 'Statistics'
     });
     $routeProvider.when("/dashboard/loans", {
       templateUrl: "/dashboard-components/loans.html"
+    }, {
+      title: 'Loans'
     });
-    $routeProvider.when("/dashboard/quests", {
+    return $routeProvider.when("/dashboard/quests", {
       templateUrl: "/dashboard-components/quests.html"
-    });
-    return $routeProvider.when("/dashboard/item", {
-      templateUrl: "/dashboard-components/item.html"
+    }, {
+      title: 'Quests'
     });
   }
 ]);
