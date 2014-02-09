@@ -8,13 +8,17 @@ app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityOb
 
   # Give the scope access to the item
   $scope.item = item
-
+  
   # Retrieve the current city
   city = new City cityId
 
   # A hypothetical city with the item purchased
   hypoCity = new City cityId
   hypoCity.addItem item 
+
+  # Expose the city
+  $scope.city = city
+ 
 
   # Set a bar chart to the city's GDP contigent on 
   # purchase decision

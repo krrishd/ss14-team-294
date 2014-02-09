@@ -1,15 +1,19 @@
-services.factory 'cityObject', ['$resource', '$window', ($resource, $window) ->
+services.factory 'cityObject', ['$resource', '$window', 'gdpCoefficients',  ($resource, $window, gdpCoefficients) ->
       
   # The template of all city objects
 
   class CityObject 
     getGdpIncreasePercentage: (city, years) ->
-      gdpIncrease = @gdpValue * Math.pow years, @gdpType
+      gdpIncrease = @getGdpIncrease years 
       percentage = gdpIncrease / 
-        (gdpIncrease + city.getGdp())
+        (gdpIncrease + city.getGdpCurrent())
 
       return percentage
 
+    getGdpIncrease: (years) ->
+        @info.benefit.LIN * Math.pow(years, gdpCoefficients.LIN) +
+        @info.benefit.QUAD * Math.pow(years, gdpCoefficients.QUAD) +
+        @info.benefit.CUBE * Math.pow(years, gdpCoefficients.CUBE)
     getKivaSector: ->
       return @kivaSector
    
