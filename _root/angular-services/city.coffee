@@ -2,14 +2,11 @@
 
 class City 
   constructor: (cityId) ->
-    @assets = JSON.parse localStorage['cities.' +  cityId]
+    @assets = if localStorage['cities.' + cityId] then JSON.parse(localStorage['cities.' +  cityId]) else new Object() 
 
     if typeof assets.creationDate == 'undefined'
       @assets.creationDate = new Date()
-
-    if typeof assets.population == 'undefined'
-      @assets.population = 100
-   
+    
     @assets.objects == [] if @assets.objects == null
   
   getElementTotal = (coefficientLevel) ->
@@ -29,15 +26,36 @@ class City
       linTotal * Math.pow(years, 1) +
       quadTotal * Math.pow(years, 2) +
       cubeTotal * Math.pow(years, 3)
-  
+
+  # GDP intergrated
+  getTotal: ->
+    # Retrieve the linear coefficient total
+    linTotal = getElementTotal(gdpCoefficient.LIN)
+    quadTotal = getElementTotal(gdpCoefficient.QUAD)
+    cubeTotal = getElementTotal(gdpCoefficient.CUBE)     
+
+    # Return the total number
+    years = @getAge()
+
+    total = 
+      ((linTotal * Math.pow(years, 2)) / 2) +
+      ((quadTotal * Math.pow(years, 3)) / 3) +
+      ((cubeTotal * Math.pow(years, 4)) / 4)
+
   getAge: ->
     today = new Date()
-    return today().getFullYear() - @assets.creationDate.getFullYear()
+    return (today() - @assets.creationDate) / (1000 * 60 * 60)
 
+  # Increases by 100 every year
   getPopulation: ->
-    return @assets.population
+    return @getAge() * 100
+
 
   gdpCoefficients = 
     LIN: 0
     QUAD: 1
     CUBE : 2
+
+f = new City()
+app.factory 'city', ->
+  return new City()
