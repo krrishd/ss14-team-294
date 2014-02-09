@@ -52,8 +52,8 @@ class City
   getPopulation: ->
     return @getAge() * 100
 
-appServices.factory 'city', ->
+services.factory 'city', ->
   return City()
 
-appServices.factory 'cityId', ->
+services.factory 'cityId', ->
   return 0

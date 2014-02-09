@@ -1,7 +1,7 @@
 {
     "content": [
         {
-            "name": "Shovel",,
+            "name": "Shovel",
             "description": "A shovel is a pretty basic agricultural"
             + " tool, but have you ever tried farming without one?",
             "kiva_category": 0,
@@ -23,7 +23,7 @@
             "description": "The Hindu religion considers cows to be holy,"
             + " and when you see how useful these bovine animals are,"
             + " a healthy respect (or even religious reverence) for these"
-            + " animals makes a lot of sense."
+            + " animals makes a lot of sense.",
             "kiva_category": "Food",
             "benefit": 200,
             "cost": 50

@@ -1,5 +1,5 @@
 {
-    sectors: [
+    "sectors": [
         "Agriculture", "Arts", "CLothing", "Construction",
         "Education", "Entertainment", "Food", "Health",
         "Housing", "Manufacturing", "Personal Use",
