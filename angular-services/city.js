@@ -54,7 +54,7 @@ services.factory('city', [
       };
 
       City.prototype.getBalance = function() {
-        return 0.25 * this.getTotalCurrent() - this.getSpendingTotal() + 1000;
+        return this.getTotalCurrent() - this.getSpendingTotal() + 1000;
       };
 
       City.prototype.addItem = function(item) {
@@ -70,7 +70,7 @@ services.factory('city', [
         linTotal = this.getElementTotal('LIN');
         quadTotal = this.getElementTotal('QUAD');
         cubeTotal = this.getElementTotal('CUBE');
-        total = linTotal * Math.pow(years, gdpCoefficients.LIN) + quadTotal * Math.pow(years, gdpCoefficients.QUAD) + cubeTotal * Math.pow(years, gdpCoefficients.CUBE);
+        total = linTotal * Math.pow(gdpCoefficients.LINCO * years, gdpCoefficients.LIN) + quadTotal * Math.pow(gdpCoefficients.QUADCO * years, gdpCoefficients.QUAD) + cubeTotal * Math.pow(gdpCoefficients.CUBECO * years, gdpCoefficients.CUBE);
         return Math.round(total) || 0;
       };
 
@@ -79,7 +79,7 @@ services.factory('city', [
         linTotal = this.getElementTotal('LIN');
         quadTotal = this.getElementTotal('QUAD');
         cubeTotal = this.getElementTotal('CUBE');
-        total = ((linTotal * Math.pow(years, gdpCoefficients.LIN + 1)) / 2) + ((quadTotal * Math.pow(years, gdpCoefficients.QUAD + 1)) / 3) + ((cubeTotal * Math.pow(years, gdpCoefficients.CUBE + 1)) / 4);
+        total = ((linTotal * Math.pow(gdpCoefficients.LINCO * years, gdpCoefficients.LIN + 1)) / 2) + ((quadTotal * Math.pow(gdpCoefficients.QUADCO * years, gdpCoefficients.QUAD + 1)) / 3) + ((cubeTotal * Math.pow(gdpCoefficients.CUBECO * years, gdpCoefficients.CUBE + 1)) / 4);
         return Math.round(total) || 0;
       };
 

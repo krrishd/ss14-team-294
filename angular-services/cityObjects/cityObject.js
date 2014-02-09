@@ -6,11 +6,11 @@ services.factory('cityObject', [
         var gdpIncrease, percentage;
         gdpIncrease = this.getGdpIncrease(years);
         percentage = gdpIncrease / (gdpIncrease + city.getGdpCurrent());
-        return percentage;
+        return Math.round(percentage);
       };
 
       CityObject.prototype.getGdpIncrease = function(years) {
-        return this.info.benefit.LIN * Math.pow(years, gdpCoefficients.LIN) + this.info.benefit.QUAD * Math.pow(years, gdpCoefficients.QUAD) + this.info.benefit.CUBE * Math.pow(years, gdpCoefficients.CUBE);
+        return this.info.benefit.LIN * Math.pow(gdpCoefficients.LINCO * years, gdpCoefficients.LIN) + this.info.benefit.QUAD * Math.pow(gdpCoefficients.QUADCO * years, gdpCoefficients.QUAD) + this.info.benefit.CUBE * Math.pow(gdpCoefficients.CUBECO * years, gdpCoefficients.CUBE);
       };
 
       CityObject.prototype.getKivaSector = function() {
