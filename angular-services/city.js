@@ -57,8 +57,12 @@ services.factory('city', [
         return this.getTotalCurrent() - this.getSpendingTotal() + 1000;
       };
 
+      City.prototype.getBalancePredicted = function(years) {
+        return this.getTotal(years) - this.getSpendingTotal() + 1000;
+      };
+
       City.prototype.addItem = function(item) {
-        if ((this.getBalance() - item.info.cost) > 0) {
+        if ((this.getBalance() - item.info.cost) >= 0) {
           return this.assets.objects.push(item);
         } else {
           return $window.alert('This item is too expensive');
@@ -94,7 +98,7 @@ services.factory('city', [
       City.prototype.getAge = function() {
         var today;
         today = new Date();
-        return (today - (new Date(this.assets.creationDate))) / (1000 * 60 * 12);
+        return (today - (new Date(this.assets.creationDate))) / (1000 * 5 * 1);
       };
 
       City.prototype.getPopulation = function() {

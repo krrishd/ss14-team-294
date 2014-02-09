@@ -21,7 +21,7 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 700, 
+            "cost": 1000, 
             "imageUrl": "http://www.mountainviewtractor.com/siteart/tractor.png" 
         },
         {
@@ -81,7 +81,7 @@
                 "QUAD": 3,
                 "CUBE": 1
             },
-            "cost": 2000,
+            "cost": 10000,
             "imageUrl": "http://www.mktpotential.com/images/PavedRoad1.png" 
         },
         {
@@ -105,7 +105,7 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 2000,
+            "cost": 20000,
             "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/4/48/Moore_Street_market,_Dublin.jpg" 
         },
         {
@@ -117,7 +117,7 @@
                 "QUAD": 2,
                 "CUBE": 1
             },
-            "cost": 10000,
+            "cost": 200000,
             "imageUrl": "http://bizmology.wpengine.netdna-cdn.com/wp-content/uploads/2012/04/supermarket.jpg" 
         },
         {
@@ -176,9 +176,9 @@
             "benefit": {
                 "LIN": 4,
                 "QUAD": 4,
-                "CUBE": 4
+                "CUBE": 8
             },
-            "cost": 200000,
+            "cost": 2000000,
             "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/2/29/Wolfsburg_Jun_2012_016_(Volkswagen_factory).JPG" 
         }
     ]
