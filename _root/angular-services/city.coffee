@@ -17,18 +17,41 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
       localStorage['cities.' + @cityId] = JSON.stringify @assets
      
     getElementTotal: (coefficientLevel) ->
-      try 
-        return @assets.objects.reduce (total, element) ->
-          if typeof total == 'number'
-            return total + element.info.benefit[coefficientLevel]
-          else
-            return 0
-      catch
-       return 0 
+      if @assets.objects.length > 1
+        try 
+          @assets.objects.reduce (total, element) ->
+            if typeof total == 'number'
+              return total + element.info.benefit[coefficientLevel]
+            else
+              return 0
+        catch
+         return 0 
+
+    getSpendingTotal: ->
+      Math.round(@getSpendingTotalRaw())
+     
+    getSpendingTotalRaw: ->
+      if @assets.objects.length > 1
+        try 
+          @assets.objects.reduce (total, element) ->
+            if typeof total == 'number'
+              return total + element.info.cost
+            else
+              return 0
+          
+        catch
+         return 0 
+      else
+        return 0
+
+     getBalance: ->
+       @getTotalCurrent() - @getSpendingTotal() + 1000
 
     addItem: (item) ->
-     
-      @assets.objects.push(item)
+      if (@getBalance() - item.info.cost) > 0
+        @assets.objects.push(item)
+      else
+        $window.alert('This item is too expensive')
 
     getGdp: (years) ->
       # Retrieve the linear coefficient total
@@ -41,6 +64,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
         quadTotal * Math.pow(years, gdpCoefficients.QUAD) +
         cubeTotal * Math.pow(years, gdpCoefficients.CUBE)
       return total || 0
+
 
     # GDP intergrated
     getTotal: (years) ->
@@ -64,7 +88,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
 
     getAge: ->
       today = new Date()
-      return (today - (new Date(@assets.creationDate))) / (1000 * 60 * 60)
+      return (today - (new Date(@assets.creationDate))) / (1000 * 60 * 60) 
 
     # Increases by 100 every year
     getPopulation: ->
