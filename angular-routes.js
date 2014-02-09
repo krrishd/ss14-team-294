@@ -1,13 +1,22 @@
 app.config([
   '$routeProvider', function($routeProvider) {
+    $routeProvider.when('/register', {
+      templateUrl: './angular-templates/register.html',
+      controller: 'RegisterCtrl'
+    });
     $routeProvider.when('/', {
       templateUrl: './angular-templates/home.html'
     });
     $routeProvider.when("/dashboard", {
       templateUrl: "/dashboard-components/marketplace.html"
     });
+    $routeProvider.when("/dashboard/marketplace/:item", {
+      templateUrl: "./dashboard-components/item.html",
+      controller: "ItemCtrl"
+    });
     $routeProvider.when("/dashboard/marketplace", {
-      templateUrl: "/dashboard-components/marketplace.html"
+      templateUrl: "/dashboard-components/marketplace.html",
+      controller: "MarketCtrl"
     });
     $routeProvider.when("/dashboard/statistics", {
       templateUrl: "/dashboard-components/statistics.html"

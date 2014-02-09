@@ -9,7 +9,8 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 100
+            "cost": 100,
+            "imageUrl": "" 
         },
         {
             "name": "Tractor",
@@ -20,7 +21,8 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 700 
+            "cost": 700, 
+            "imageUrl": "" 
         },
         {
             "name": "Cow",
@@ -31,7 +33,8 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 200
+            "cost": 200,
+            "imageUrl": "" 
         },
         {
             "name": "Schoolhouse",
@@ -42,7 +45,8 @@
                 "QUAD": 4,
                 "CUBE": 1
             },
-            "cost": 2000
+            "cost": 2000,
+            "imageUrl": "" 
         },
         {
             "name": "Academy",
@@ -53,7 +57,8 @@
                 "QUAD": 8,
                 "CUBE": 4
             },
-            "cost": 50000
+            "cost": 50000,
+            "imageUrl": "" 
         },
         {
             "name": "Dirt Road",
@@ -64,7 +69,8 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 500
+            "cost": 500,
+            "imageUrl": "" 
         },
         {
             "name": "Paved Road",
@@ -75,7 +81,8 @@
                 "QUAD": 3,
                 "CUBE": 1
             },
-            "cost": 2000
+            "cost": 2000,
+            "imageUrl": "" 
         },
         {
             "name": "Corner Shop",
@@ -86,7 +93,8 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 5000
+            "cost": 5000,
+            "imageUrl": "" 
         },
         {
             "name": "Market",
@@ -97,7 +105,8 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 2000
+            "cost": 2000,
+            "imageUrl": "" 
         },
         {
             "name": "Supermarket",
@@ -108,7 +117,8 @@
                 "QUAD": 2,
                 "CUBE": 1
             },
-            "cost": 10000
+            "cost": 10000,
+            "imageUrl": "" 
         },
         {
             "name": "Solar Panels",
@@ -119,7 +129,8 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 500
+            "cost": 500,
+            "imageUrl": "" 
         },
         {
             "name": "Power Plant",
@@ -130,7 +141,8 @@
                 "QUAD": 3,
                 "CUBE": 1
             },
-            "cost": 10000
+            "cost": 10000,
+            "imageUrl": "" 
         },
         {
             "name": "Sewing Machine",

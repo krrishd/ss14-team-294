@@ -1,5 +1,5 @@
 services.factory('cityObject', [
-  '$resource', function() {
+  '$resource', '$window', function($resource, $window) {
     var CityObject;
     CityObject = (function() {
       CityObject.prototype.getGdpIncreasePercentage = function(city, years) {
@@ -18,10 +18,13 @@ services.factory('cityObject', [
       };
 
       function CityObject(type) {
-        var catalogDictionaryObject;
-        catalogDictionaryObject = $resource('./content/marketplace.json').get();
-        this.info = catalogDictionaryObject.content.filter(function(item) {
-          return item.name === type;
+        var catalogDictionaryObject, outer;
+        outer = this;
+        catalogDictionaryObject = $resource('./content/marketplace.json').get(function(data) {
+          outer.info = (data.content.filter(function(item) {
+            return item.name === type;
+          }))[0];
+          return $window.console.log(this.info);
         });
       }
 
