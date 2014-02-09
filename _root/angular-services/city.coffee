@@ -58,6 +58,6 @@ class City
     QUAD: 1
     CUBE : 2
 
-f = new City()
+
 app.factory 'city', ->
-  return new City()
+  return City()
