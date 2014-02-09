@@ -62,7 +62,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
       total = 
         linTotal * Math.pow(gdpCoefficients.LINCO * years, gdpCoefficients.LIN) +
         quadTotal * Math.pow(gdpCoefficients.QUADCO * years, gdpCoefficients.QUAD) +
-        cubeTotal * Math.pow(gdpComparison.CUBECO * years, gdpCoefficients.CUBE)
+        cubeTotal * Math.pow(gdpCoefficients.CUBECO * years, gdpCoefficients.CUBE)
       return Math.round(total) || 0
 
 
