@@ -13,7 +13,8 @@ app.config ['$routeProvider', ($routeProvider) ->
 
   # Dashboard routes
   $routeProvider.when "/dashboard",
-	   templateUrl: "/dashboard-components/marketplace.html", controller: "MarketCtrl"
+	   templateUrl: "/dashboard-components/marketplace.html", 
+     controller: "MarketCtrl"
 	  
 
   $routeProvider.when "/dashboard/marketplace/:itemName",
@@ -27,8 +28,8 @@ app.config ['$routeProvider', ($routeProvider) ->
     title: 'Marketplace',
 
   $routeProvider.when "/dashboard/statistics",
-	   templateUrl: "/dashboard-components/statistics.html"
-	   title: 'Statistics'
+	   templateUrl: "/dashboard-components/statistics.html",
+     controller: "StatisticsCtrl"
 
   $routeProvider.when "/dashboard/loans",
 	   templateUrl: "/dashboard-components/loans.html",

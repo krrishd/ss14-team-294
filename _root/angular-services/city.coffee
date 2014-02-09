@@ -45,7 +45,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
         return 0
 
      getBalance: ->
-       @getTotalCurrent() - @getSpendingTotal() + 1000
+       0.25 * @getTotalCurrent() - @getSpendingTotal() + 1000
 
     addItem: (item) ->
       if (@getBalance() - item.info.cost) > 0
