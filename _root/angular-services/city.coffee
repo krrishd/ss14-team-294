@@ -1,10 +1,11 @@
 # The city CRUD
 
 
-services.factory 'city', ['gdpCoefficients', 'cityObject', (gdpCoefficients, cityObject) ->
+services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, gdpCoefficients, cityObject) ->
   class City 
 
     constructor: (cityId) ->
+      @cityId = cityId
       @assets = if localStorage['cities.' + cityId] then JSON.parse(localStorage['cities.' +  cityId]) else new Object() 
 
       if typeof @assets.creationDate == 'undefined'
@@ -12,22 +13,28 @@ services.factory 'city', ['gdpCoefficients', 'cityObject', (gdpCoefficients, cit
       
       @assets.objects = @assets.objects || [] 
     
+    save: ->
+      localStorage['cities.' + @cityId] = JSON.stringify @assets
+     
     getElementTotal: (coefficientLevel) ->
       try 
         return @assets.objects.reduce (total, element) ->
-          return total + element.benefit[coefficientLevel]
+          if typeof total == 'number'
+            return total + element.info.benefit[coefficientLevel]
+          else
+            return 0
       catch
-        return []
+       return 0 
 
     addItem: (item) ->
-      object = new cityObject(item)
+     
       @assets.objects.push(item)
 
     getGdp: (years) ->
       # Retrieve the linear coefficient total
-      linTotal = @getElementTotal(gdpCoefficients.LIN)
-      quadTotal = @getElementTotal(gdpCoefficients.QUAD)
-      cubeTotal = @getElementTotal(gdpCoefficients.CUBE)     
+      linTotal = @getElementTotal('LIN')
+      quadTotal = @getElementTotal('QUAD')
+      cubeTotal = @getElementTotal('CUBE')     
 
       total = 
         linTotal * Math.pow(years, gdpCoefficients.LIN) +

@@ -12,4 +12,4 @@ var services = angular.module('app.services', []);
 var directives = angular.module('app.directives', []);
 
 // Initialize our main app module
-var app = angular.module('app', ['ngRoute', 'ngResource', 'app.filters', 'app.services', 'app.directives']);
+var app = angular.module('app', ['angles', 'ngRoute', 'ngResource', 'app.filters', 'app.services', 'app.directives']);
