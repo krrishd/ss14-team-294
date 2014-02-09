@@ -7,12 +7,15 @@ app.controller('StatisticsCtrl', [
       $scope.balance = city.getBalance();
       return $scope.$apply();
     };
+    updateBalance();
     setInterval(updateBalance, 1000);
     updateAge = function() {
       $scope.age = city.getAge();
       return $scope.$apply();
     };
+    updateAge();
     setInterval(updateAge, 1000);
+    $scope.years = 0;
     $window.city = city;
     gdpArray = [10, 20, 50, 100].map(function(n) {
       return city.getGdp(n);

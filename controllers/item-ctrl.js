@@ -1,12 +1,18 @@
 app.controller('ItemCtrl', [
   '$window', '$scope', '$routeParams', 'city', 'cityObject', 'cityId', 'FutureGdpFilter', function($window, $scope, $routeParams, City, cityObject, cityId, FutureGdpFilter) {
-    var city, item, itemName;
+    var city, item, itemName, updateBalance;
     itemName = $routeParams.itemName;
     item = new cityObject(itemName);
     $scope.item = item;
     city = new City(cityId);
     $scope.city = city;
-    $scope.gdpComparison = $scope.purchaseItem = function() {
+    updateBalance = function() {
+      $scope.balance = city.getBalance();
+      return $scope.$apply();
+    };
+    updateBalance();
+    setInterval(updateBalance, 1000);
+    $scope.purchaseItem = function() {
       city.addItem(item);
       return city.save();
     };
