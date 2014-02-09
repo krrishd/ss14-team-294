@@ -10,7 +10,8 @@ app.config([
     $routeProvider.when("/dashboard", {
       templateUrl: "/dashboard-components/marketplace.html"
     }, {
-      title: 'Dashboard'
+      title: 'Dashboard',
+      controller: "MarketCtrl"
     });
     $routeProvider.when("/dashboard/marketplace/:itemName", {
       templateUrl: "./dashboard-components/item.html",
