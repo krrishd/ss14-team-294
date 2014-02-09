@@ -153,7 +153,8 @@
                 "QUAD": 1,
                 "CUBE": 1
             },
-            "cost": 600
+            "cost": 600,
+            "imageUrl": "" 
         },
         {
             "name": "Milling Machine",
@@ -164,7 +165,8 @@
                 "QUAD": 2,
                 "CUBE": 1
             },
-            "cost": 20000
+            "cost": 20000,
+            "imageUrl": "" 
         },
         {
             "name": "Factory",
@@ -175,7 +177,8 @@
                 "QUAD": 4,
                 "CUBE": 4
             },
-            "cost": 200000
+            "cost": 200000,
+            "imageUrl": "" 
         }
     ]
 }
