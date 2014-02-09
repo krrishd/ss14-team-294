@@ -75,6 +75,10 @@ services.factory('city', [
         quadTotal = this.getElementTotal('QUAD');
         cubeTotal = this.getElementTotal('CUBE');
         total = linTotal * Math.pow(years, gdpCoefficients.LINCO * gdpCoefficients.LIN) + quadTotal * Math.pow(years, gdpCoefficients.QUADCO * gdpCoefficients.QUAD) + cubeTotal * Math.pow(years, gdpCoefficients.CUBECO * gdpCoefficients.CUBE);
+        if ((total > 10000) && (localStorage['hasTycoon'] !== true)) {
+          $window.alert("Congratulations! You have reached tycoon status!");
+          localStorage['hasTycoon'] = true;
+        }
         return Math.round(total) || 0;
       };
 

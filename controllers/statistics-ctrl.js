@@ -1,8 +1,14 @@
 app.controller('StatisticsCtrl', [
   '$resource', '$window', '$scope', 'city', 'cityId', function($resource, $window, $scope, City, cityId) {
-    var addToCount, city, gdpArray, itemCounts, updateAge, updateBalance;
+    var addToCount, city, gdpArray, itemCounts, updateAge, updateBalance, updateGdp;
     city = new City(cityId);
     $scope.city = city;
+    updateGdp = function() {
+      $scope.GDP = city.getGdpCurrent();
+      return $scope.$apply();
+    };
+    updateGdp();
+    setInterval(updateGdp, 1000);
     updateBalance = function() {
       $scope.balance = city.getBalance();
       return $scope.$apply();
