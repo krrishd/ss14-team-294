@@ -13,9 +13,7 @@ app.config ['$routeProvider', ($routeProvider) ->
 
   # Dashboard routes
   $routeProvider.when "/dashboard",
-	   templateUrl: "/dashboard-components/marketplace.html",
-     title: 'Dashboard',
-     controller: "MarketCtrl"
+	   templateUrl: "/dashboard-components/marketplace.html", controller: "MarketCtrl"
 	  
 
   $routeProvider.when "/dashboard/marketplace/:itemName",
