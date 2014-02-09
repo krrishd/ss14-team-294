@@ -9,3 +9,13 @@ input(type="range", ng-model="years", min=0, max=100)
 
 h2 Projected GDP growth: 
 canvas(data="gdpGrowth", width=500, height=300, linechart)
+
+
+table.pure-table
+  tr
+    th Item
+    th Quantity
+  
+  tr(ng-repeat="itemCount in itemCounts")
+    td {{ itemCount.name }}
+    td {{ itemCount.count }}

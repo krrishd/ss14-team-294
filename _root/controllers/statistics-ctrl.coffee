@@ -1,4 +1,4 @@
-app.controller 'StatisticsCtrl', ['$window', '$scope', 'city', 'cityId', ($window, $scope, City, cityId) ->
+app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cityId', ($resource, $window, $scope, City, cityId) ->
   city = new City cityId
 
   $scope.city = city
@@ -16,7 +16,22 @@ app.controller 'StatisticsCtrl', ['$window', '$scope', 'city', 'cityId', ($windo
       data: gdpArray } 
     ]
 
-    #$scope.gdp = $scope.city.getGdp $scope.years
+   itemCounts = []
+   addToCount = (item) ->
+   
+     items = city.assets.objects.filter (element) ->
+   
+    
+      return item.name == element.info.name
+    
+     itemCounts.push {name: item.name, count: items.length}
+   
+   
+   $resource('./content/marketplace.json').get (data) ->
+    addToCount item for item in data.content 
+
+   $scope.itemCounts = itemCounts
+
 ]
 
 filters.filter 'gdp', ->
