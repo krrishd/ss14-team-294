@@ -1,5 +1,5 @@
 app.controller('ItemCtrl', [
-  '$window', '$scope', '$routeParams', 'city', 'cityObject', 'cityId', 'FutureGdpFilter', function($window, $scope, $routeParams, City, cityObject, cityId, FutureGdpFilter) {
+  '$resource', '$window', '$scope', '$routeParams', 'city', 'cityObject', 'cityId', 'FutureGdpFilter', function($resource, $window, $scope, $routeParams, City, cityObject, cityId, FutureGdpFilter) {
     var city, item, itemName, updateBalance;
     itemName = $routeParams.itemName;
     item = new cityObject(itemName);
@@ -17,6 +17,9 @@ app.controller('ItemCtrl', [
       city.addItem(item);
       return city.save();
     };
+    $resource('http://api.kivaws.org/v1/teams/search.json?q=Factory').get(function(data) {
+      return $scope.loan = data.teams[0];
+    });
     $scope.city = city;
     return $window.city = city;
   }

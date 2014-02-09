@@ -16,6 +16,9 @@ app.config([
       controller: "ItemCtrl",
       title: 'Item'
     });
+    $routeProvider.when('/about', {
+      templateUrl: './dashboard-components/about.html'
+    });
     $routeProvider.when("/dashboard/marketplace", {
       templateUrl: "/dashboard-components/marketplace.html",
       controller: "MarketCtrl",
