@@ -2,13 +2,20 @@ app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cit
   city = new City cityId
 
   $scope.city = city
-  $scope.balance = city.getBalance()
   
   updateBalance = ->
     $scope.balance = city.getBalance()
     $scope.$apply()
 
   setInterval(updateBalance, 1000)
+
+  updateAge = ->
+    $scope.age= city.getAge()
+    $scope.$apply()
+
+  setInterval(updateAge, 1000)
+
+
   $window.city = city
   gdpArray = ([10, 20, 50, 100].map (n) -> city.getGdp n)
 
@@ -52,3 +59,11 @@ app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cit
 filters.filter 'gdp', ->
   (input, city) ->
     return city.getGdp input
+
+filters.filter 'balance', ->
+  (input, city) ->
+    return city.getBalancePredicted input
+
+filters.filter 'total', ->
+  (input, city) ->
+    return city.getTotal input

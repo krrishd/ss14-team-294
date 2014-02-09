@@ -47,6 +47,9 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
      getBalance: ->
        @getTotalCurrent() - @getSpendingTotal() + 1000
 
+    getBalancePredicted: (years) ->
+      @getTotal(years) - @getSpendingTotal() + 1000
+    
     addItem: (item) ->
       if (@getBalance() - item.info.cost) > 0
         @assets.objects.push(item)
@@ -88,7 +91,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
 
     getAge: ->
       today = new Date()
-      return (today - (new Date(@assets.creationDate))) / (1000 * 12 * 1) 
+      return (today - (new Date(@assets.creationDate))) / (1000 * 5 * 1) 
 
     # Increases by 100 every year
     getPopulation: ->

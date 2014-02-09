@@ -2,6 +2,15 @@ h1 Statistics
 .stats
   p Current Balance:
     | {{ balance }}
+ 
+  p Current Age:
+    | {{ age | number: 1}} years
+
+  p Future Balance:
+    | <strong>{{ years | balance:city}}</strong> after <strong>{{ years}}</strong> years
+    br 
+    br 
+    input(type="range", style="width: 500px", min=0, max=100000, ng-model="years")
 
   h2 Projected GDP growth: 
   canvas(data="gdpGrowth", width=500, height=300, linechart)
