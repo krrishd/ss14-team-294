@@ -1,6 +1,9 @@
 <h1>Marketplace</h1>
 <div class="items">
   <div class="item" ng-repeat="item in items">
+    <a ng-href="{{ '/#/dashboard/' + item.name.toLowerCase() }}">
     <img ng-src="{{ item.imageUrl || 'http://placehold.it/500x500' }}">
     <h2>{{ item.name}}</h2>
     <p><i class="icon ion-card"></i> {{ item.cost }}</p>
+    </a>
+  </div>
