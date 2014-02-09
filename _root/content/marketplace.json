@@ -1,106 +1,169 @@
 {
     "content": [
         {
-            "name": "Shovel",,
-            "description": "A shovel is a pretty basic agricultural"
-            + " tool, but have you ever tried farming without one?",
-            "kiva_category": 0,
-            "benefit": 0,
-            "cost": 0
+            "name": "Shovel",
+            "description": "A shovel is a pretty basic agricultural tool, but have you ever tried farming without one?",
+            "kiva_category": "Agriculture",
+            "benefit": {
+                "LIN": 2,
+                "QUAD": 1,
+                "CUBE": 1
+            },
+            "cost": 100
         },
         {
             "name": "Tractor",
-            "description": "A tractor is a machine that can massively"
-            + " increase the efficiency of a farm. Buying a tractor"
-            + " is one of the most straightforward ways to raise your"
-            + " GDP.",
+            "description": "A tractor is a machine that can massively increase the efficiency of a farm. Buying a tractor is one of the most straightforward ways to raise your GDP.",
             "kiva_category": "Agriculture",
-            "benefit": 500,
-            "cost": 100 
+            "benefit": {
+                "LIN": 8,
+                "QUAD": 1,
+                "CUBE": 1
+            },
+            "cost": 700 
         },
         {
             "name": "Cow",
-            "description": "The Hindu religion considers cows to be holy,"
-            + " and when you see how useful these bovine animals are,"
-            + " a healthy respect (or even religious reverence) for these"
-            + " animals makes a lot of sense."
+            "description": "The Hindu religion considers cows to be holy, and when you see how useful these bovine animals are, a healthy respect (or even religious reverence) for these animals makes a lot of sense.",
             "kiva_category": "Food",
-            "benefit": 200,
-            "cost": 50
+            "benefit": {
+                "LIN": 3,
+                "QUAD": 1,
+                "CUBE": 1
+            },
+            "cost": 200
         },
         {
             "name": "Schoolhouse",
-            "description": "A village is full of elders that can pass"
-            + " down their wisdom, even though most of them will not"
-            + " have formal training. A Schoolhouse gives your village"
-            + " or city a place to gather the young to learn from the"
-            + " wise."
+            "description": "A village is full of elders that can pass down their wisdom, even though most of them will not have formal training. A Schoolhouse gives your village or city a place to gather the young to learn from the wise.",
             "kiva_category": "Education",
-            "benefit": 200,
-            "cost": 50
+            "benefit": {
+                "LIN": 1,
+                "QUAD": 4,
+                "CUBE": 1
+            },
+            "cost": 2000
+        },
+        {
+            "name": "Academy",
+            "description": "An academy is better than a schoolhouse. It comes with highly trained instructors and scientific equipment. It is the single fastest way to turn a tiny village into a metropolis, but it will require a significant up-front cash investment.",
+            "kiva_category": "Education",
+            "benefit": {
+                "LIN": 4,
+                "QUAD": 8,
+                "CUBE": 4
+            },
+            "cost": 50000
         },
         {
             "name": "Dirt Road",
-            "description": "A dirt road is cheap, but making one creates"
-            + " a massive efficiency increase over just traveling through"
-            + " untamed land. Ultimately, dirt roads are essential for"
-            + " any early stage village to be able to trade without"
-            + " paying too much in travel costs."
+            "description": "A dirt road is cheap, but making one creates a massive efficiency increase over just traveling through untamed land. Ultimately, dirt roads are essential for any early stage village to be able to trade without paying too much in travel costs.",
+            "kiva_category": "Transportation",
+            "benefit": {
+                "LIN": 4,
+                "QUAD": 1,
+                "CUBE": 1
+            },
+            "cost": 500
         },
         {
             "name": "Paved Road",
-            "description": "For the villages and cities with a little"
-            + " bit more money, a paved road will last longer than a"
-            + " dirt road, and represents a greater efficiency increase"
-            + " too."
+            "description": "For the villages and cities with a little bit more money, a paved road will last longer than a dirt road, and represents a greater efficiency increase too.",
+            "kiva_category": "Transportation",
+            "benefit": {
+                "LIN": 4,
+                "QUAD": 3,
+                "CUBE": 1
+            },
+            "cost": 2000
         },
         {
             "name": "Corner Shop",
-            "description": "Back in the day, everbody made the goods they"
-            + " needed to live: food, soap, clothing, furniture, and more."
-            + " The problem is making all of that was difficult and took"
-            + " most of people's time. By relying on specialists to"
-            + " produce each category of merchandise, and then selling"
-            + " that merchandise in a store, we can produce massive"
-            + " increases in efficiency."
+            "description": "Back in the day, everbody made the goods they needed to live: food, soap, clothing, furniture, and more. The problem is making all of that was difficult and took most of people's time. By relying on specialists to produce each category of merchandise, and then selling that merchandise in a store, we can produce massive increases in efficiency.",
+            "kiva_category": "Retail",
+            "benefit": {
+                "LIN": 4,
+                "QUAD": 1,
+                "CUBE": 1
+            },
+            "cost": 5000
         },
         {
             "name": "Market",
-            "description": "A corner shop is great for a village with"
-            + " fewer people and fewer needs than a medium-sized city,"
-            + " but a successful village will eventually need a more"
-            + " serious location for commerce."
+            "description": "A corner shop is great for a village with fewer people and fewer needs than a medium-sized city, but a successful village will eventually need a more serious location for commerce.",
+            "kiva_category": "Retail",
+            "benefit": {
+                "LIN": 3,
+                "QUAD": 1,
+                "CUBE": 1
+            },
+            "cost": 2000
         },
         {
             "name": "Supermarket",
-            "description": "Every industrialized city in the world"
-            + " has several, and if your city is big enough, your"
-            + " residents could also benefit from a supermarket."
+            "description": "Every industrialized city in the world has several, and if your city is big enough, your residents could also benefit from a supermarket.",
+            "kiva_category": "Retail",
+            "benefit": {
+                "LIN": 2,
+                "QUAD": 2,
+                "CUBE": 1
+            },
+            "cost": 10000
         },
         {
             "name": "Solar Panels",
-            "description": "Modern technology relies on energy, and most"
-            + " forms of energy require a complicated infrastructure."
-            + " A solar panel system allows your village to use basic"
-            + " electronics without having to invest in a significant"
-            + " amount of infrastructure."
+            "description": "Modern technology relies on energy, and most forms of energy require a complicated infrastructure. A solar panel system allows your village to use basic electronics without having to invest in a significant amount of infrastructure.",
+            "kiva_category": "Construction",
+            "benefit": {
+                "LIN": 4,
+                "QUAD": 1,
+                "CUBE": 1
+            },
+            "cost": 500
         },
         {
             "name": "Power Plant",
-            "description": "Solar panels are great for energy... but not"
-            + " when the weather is bad or at night. When your village's"
-            + " energy demands increase, a power plant can provide"
-            + " exactly what is needed."
+            "description": "Solar panels are great for energy... but not when the weather is bad or at night. When your village's  energy demands increase, a power plant can provide exactly what is needed.",
+            "kiva_category": "Construction",
+            "benefit": {
+                "LIN": 3,
+                "QUAD": 3,
+                "CUBE": 1
+            },
+            "cost": 10000
         },
         {
             "name": "Sewing Machine",
-            "description": 
+            "description": "A sewing machine makes it dramatically easier for your villagers to produce their own clothing. With a sewing machine, villagers can potentially produce enough clothing to export.",
+            "kiva_category": "Clothing",
+            "benefit": {
+                "LIN": 4,
+                "QUAD": 1,
+                "CUBE": 1
+            },
+            "cost": 600
         },
         {
-            "name": "Milling Machine"
+            "name": "Milling Machine",
+            "description": "A milling machine allows people to cut wood and metal. This allows for dramatically more precise manufacturing, which makes an entirely new class of inventions possible.",
+            "kiva_category": "Manufacturing",
+            "benefit": {
+                "LIN": 2,
+                "QUAD": 2,
+                "CUBE": 1
+            },
+            "cost": 20000
         },
         {
-            "name": "Factory"
+            "name": "Factory",
+            "description": "This is more than just a milling machine. A factory allows your villagers to produce industrial quantities of a single type of good, which they can then export to earn some serious cash. The only prolem with a factory is that it requires a lot of initial investment.",
+            "kiva_category": "Manufacturing",
+            "benefit": {
+                "LIN": 4,
+                "QUAD": 4,
+                "CUBE": 4
+            },
+            "cost": 200000
         }
     ]
 }
