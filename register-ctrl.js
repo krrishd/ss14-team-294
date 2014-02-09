@@ -1,7 +1,8 @@
 app.controller('RegisterCtrl', [
-  '$scope', '$resource', '$window', function($scope, $resource, $window) {
+  '$scope', '$resource', '$window', 'cityObject', function($scope, $resource, $window, cityObject) {
     return $scope.registerUser = function() {
-      return $window.h = $resource('./content/marketplace.json').get();
+      $window.h = $resource('./content/marketplace.json').get();
+      return $window.f = new cityObject('Shovel');
     };
   }
 ]);
