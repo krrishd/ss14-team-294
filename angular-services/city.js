@@ -94,7 +94,7 @@ services.factory('city', [
       City.prototype.getAge = function() {
         var today;
         today = new Date();
-        return (today - (new Date(this.assets.creationDate))) / (1000 * 60 * 60);
+        return (today - (new Date(this.assets.creationDate))) / (1000 * 60 * 12);
       };
 
       City.prototype.getPopulation = function() {
