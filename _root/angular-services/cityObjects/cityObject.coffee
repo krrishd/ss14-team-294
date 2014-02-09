@@ -23,7 +23,7 @@ services.factory 'cityObject', ['$resource', '$window', ($resource, $window) ->
       outer = @
       catalogDictionaryObject = $resource('./content/marketplace.json').get (data) ->
         outer.info = (data.content.filter (item) ->
-          return item.name.toLowerCase() == type.toLowerCase())[0]
+          return item.name.toLowerCase().replace(' ', '-') == type.toLowerCase().replace(' ', '-'))[0]
         $window.console.log(outer.info)
     
   return CityObject

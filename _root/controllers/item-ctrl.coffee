@@ -7,7 +7,7 @@ app.controller 'ItemCtrl', ['$scope', '$routeParams', 'city', 'cityObject','city
   item = new cityObject itemName
 
   # Give the scope access to the item
-  $scope.item = item
+  $scope.item = item.info
 
   # Retrieve the current city
   city = new City cityId
