@@ -29,13 +29,6 @@ app.controller('StatisticsCtrl', [
         }
       ]
     };
-    $scope.itemChart = [
-      {
-        value: 4,
-        color: "#d64343",
-        label: "Hello"
-      }
-    ];
     itemCounts = [];
     addToCount = function(item) {
       var items;
@@ -47,17 +40,34 @@ app.controller('StatisticsCtrl', [
         count: items.length
       });
     };
-    $resource('./content/marketplace.json').get(function(data) {
-      var item, _i, _len, _ref, _results;
+    return $resource('./content/marketplace.json').get(function(data) {
+      var item, itemLabels, itemNumbers, _i, _len, _ref;
       _ref = data.content;
-      _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         item = _ref[_i];
-        _results.push(addToCount(item));
+        addToCount(item);
       }
-      return _results;
+      $scope.itemCounts = itemCounts;
+      itemLabels = itemCounts.map(function(i) {
+        return i.name;
+      });
+      itemNumbers = itemCounts.map(function(i) {
+        return i.count;
+      });
+      $scope.itemChart = {
+        labels: itemLabels,
+        datasets: [
+          {
+            fillColor: '#7779Ed',
+            strokeColor: '#4A4DF0',
+            pointColor: '#29068A',
+            pointStrokeColor: '#1D0169',
+            data: itemNumbers
+          }
+        ]
+      };
+      return $scope.$apply();
     });
-    return $scope.itemCounts = itemCounts;
   }
 ]);
 
