@@ -51,7 +51,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
       @getTotal(years) - @getSpendingTotal() + 1000
     
     addItem: (item) ->
-      if (@getBalance() - item.info.cost) > 0
+      if (@getBalance() - item.info.cost) >= 0
         @assets.objects.push(item)
       else
         $window.alert('This item is too expensive')
