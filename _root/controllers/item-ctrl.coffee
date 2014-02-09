@@ -29,7 +29,9 @@ app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityOb
   updateBalance()
   setInterval(updateBalance, 1000)
 
-  
+  # Set the default year to date
+  $scope.ytd = 1
+
   # A function to purchase items
   $scope.purchaseItem = ->
     city.addItem item

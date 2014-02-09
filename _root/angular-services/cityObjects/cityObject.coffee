@@ -6,14 +6,14 @@ services.factory 'cityObject', ['$resource', '$window', 'gdpCoefficients',  ($re
     getGdpIncreasePercentage: (city, years) ->
       gdpIncrease = @getGdpIncrease years 
       percentage = gdpIncrease / 
-        (gdpIncrease + city.getGdpCurrent())
+        (gdpIncrease + city.getGdp(years))
 
       return Math.round(percentage)
 
     getGdpIncrease: (years) ->
-      @info.benefit.LIN * Math.pow(gdpCoefficients.LINCO * years, gdpCoefficients.LIN) +
-      @info.benefit.QUAD * Math.pow(gdpCoefficients.QUADCO * years, gdpCoefficients.QUAD) +
-      @info.benefit.CUBE * Math.pow(gdpCoefficients.CUBECO * years, gdpCoefficients.CUBE)
+      @info.benefit.LIN * Math.pow(years, gdpCoefficients.LINCO * gdpCoefficients.LIN) +
+      @info.benefit.QUAD * Math.pow(years, gdpCoefficients.QUADCO * gdpCoefficients.QUAD) +
+      @info.benefit.CUBE * Math.pow(years, gdpCoefficients.CUBECO * gdpCoefficients.CUBE)
     
      
     getKivaSector: ->

@@ -5,7 +5,8 @@
 <div class="cost-gdp">
   <p class="item-cost">{{ item.info.cost + ' Credits' }}</p>
   <p class="your-credits"> {{ 'Your balance: ' + (balance | number: 0) + ' credits.' }}</p>
-  <p class="item-gdp">{{ (item.getGdpIncrease(1) | number: 1) + '% increase in GDP/year' }}</p>
+  <input type="range" style="width: 400px;" min=0 max=200 ng-model="ytd" /> 
+  <p class="item-gdp">{{ (item.getGdpIncrease(ytd) | number: 1) }} % increase in GDP in {{ ytd }} years</p>
 </div>
 
 
