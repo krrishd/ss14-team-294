@@ -14,7 +14,7 @@ app.controller 'ItemCtrl', ['$window', '$scope', '$routeParams', 'city', 'cityOb
 
   # A hypothetical city with the item purchased
   hypoCity = new City cityId
-  hypoCity.addItem itemName
+  hypoCity.addItem item 
 
   # Set a bar chart to the city's GDP contigent on 
   # purchase decision
