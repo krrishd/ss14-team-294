@@ -1,59 +1,62 @@
 # The city CRUD
 
-class City 
-  constructor: (cityId) ->
-    @assets = if localStorage['cities.' + cityId] then JSON.parse(localStorage['cities.' +  cityId]) else new Object() 
 
-    if typeof assets.creationDate == 'undefined'
-      @assets.creationDate = new Date()
+services.factory 'city', ['cityObject', (cityObject) ->
+  class City 
+    constructor: (cityId) ->
+      @assets = if localStorage['cities.' + cityId] then JSON.parse(localStorage['cities.' +  cityId]) else new Object() 
+
+      if typeof assets.creationDate == 'undefined'
+        @assets.creationDate = new Date()
+      
+      @assets.objects == [] if @assets.objects == null
     
-    @assets.objects == [] if @assets.objects == null
-  
-  getElementTotal = (coefficientLevel) ->
-    return @assets.objects.reduce (total, element) ->
-      return total + element.gdpValue if element.gdpType == coefficientLevel 
+    getElementTotal = (coefficientLevel) ->
+      return @assets.objects.reduce (total, element) ->
+        return total + element.benefit[coefficientLevel]
 
-  getGdp: ->
-    # Retrieve the linear coefficient total
-    linTotal = getElementTotal(gdpCoefficient.LIN)
-    quadTotal = getElementTotal(gdpCoefficient.QUAD)
-    cubeTotal = getElementTotal(gdpCoefficient.CUBE)     
+    addItem: (item) ->
+      object = new cityObject(item)
+      @assets.objects.push(item)
 
-    # Return the total number
-    years = @getAge()
+    getGdp: (years) ->
+      # Retrieve the linear coefficient total
+      linTotal = getElementTotal(gdpCoefficient.LIN)
+      quadTotal = getElementTotal(gdpCoefficient.QUAD)
+      cubeTotal = getElementTotal(gdpCoefficient.CUBE)     
 
-    total = 
-      linTotal * Math.pow(years, gdpCoefficient.LIN) +
-      quadTotal * Math.pow(years, gdpCoefficient.QUAD) +
-      cubeTotal * Math.pow(years, gdpCoefficient.CUBE)
-    return total
+      total = 
+        linTotal * Math.pow(years, gdpCoefficient.LIN) +
+        quadTotal * Math.pow(years, gdpCoefficient.QUAD) +
+        cubeTotal * Math.pow(years, gdpCoefficient.CUBE)
+      return total || 0
 
-  # GDP intergrated
-  getTotal: ->
-    # Retrieve the linear coefficient total
-    linTotal = getElementTotal(gdpCoefficient.LIN)
-    quadTotal = getElementTotal(gdpCoefficient.QUAD)
-    cubeTotal = getElementTotal(gdpCoefficient.CUBE)     
+    # GDP intergrated
+    getTotal: (years) ->
+      # Retrieve the linear coefficient total
+      linTotal = getElementTotal(gdpCoefficient.LIN)
+      quadTotal = getElementTotal(gdpCoefficient.QUAD)
+      cubeTotal = getElementTotal(gdpCoefficient.CUBE)     
 
-    # Return the total number
-    years = @getAge()
+      total = 
+        ((linTotal * Math.pow(years, gdpCoefficient.LIN + 1)) / 2) +
+        ((quadTotal * Math.pow(years, gdpCoefficient.QUAD + 1)) / 3) +
+        ((cubeTotal * Math.pow(years, gdpCoefficient.CUBE + 1)) / 4)
+      return total || 0
 
-    total = 
-      ((linTotal * Math.pow(years, gdpCoefficient.LIN + 1)) / 2) +
-      ((quadTotal * Math.pow(years, gdpCoefficient.QUAD + 1)) / 3) +
-      ((cubeTotal * Math.pow(years, gdpCoefficient.CUBE + 1)) / 4)
-    return total
+    getGdpCurrent: ->
+      return @getGdp @getAge()
 
-  getAge: ->
-    today = new Date()
-    return (today() - @assets.creationDate) / (1000 * 60 * 60)
+    getTotalCurrent: ->
+      return @getTotal @getAge()
 
-  # Increases by 100 every year
-  getPopulation: ->
-    return @getAge() * 100
+    getAge: ->
+      today = new Date()
+      return (today() - @assets.creationDate) / (1000 * 60 * 60)
 
-services.factory 'city', ->
-  return City()
-
+    # Increases by 100 every year
+    getPopulation: ->
+      return @getAge() * 100
+]
 services.factory 'cityId', ->
   return 0
