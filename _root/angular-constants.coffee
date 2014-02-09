@@ -5,6 +5,6 @@ services.factory 'gdpCoefficients', ->
     QUAD: 2
     CUBE : 3
     LINCO: .2
-    QUADCO: .000001
+    QUADCO: .01
     CUBECO: .0001
   return gdpCoefficients

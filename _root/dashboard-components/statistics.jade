@@ -1,11 +1,11 @@
 h1 Statistics
 .stats
   p Current Balance:
-    | {{ city.getBalance() }}
+    | {{ balance }}
 
   h2 Projected GDP growth: 
   canvas(data="gdpGrowth", width=500, height=300, linechart)
-
+  canvas(data="itemChart", width=500, height=300, piechart)
 
   table.pure-table
     tr

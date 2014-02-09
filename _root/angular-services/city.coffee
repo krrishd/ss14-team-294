@@ -88,7 +88,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
 
     getAge: ->
       today = new Date()
-      return (today - (new Date(@assets.creationDate))) / (1000 * 60 * 12) 
+      return (today - (new Date(@assets.creationDate))) / (1000 * 12 * 1) 
 
     # Increases by 100 every year
     getPopulation: ->

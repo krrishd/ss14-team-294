@@ -2,11 +2,17 @@ app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cit
   city = new City cityId
 
   $scope.city = city
+  $scope.balance = city.getBalance()
+  
+  updateBalance = ->
+    $scope.balance = city.getBalance()
+    $scope.$apply()
 
+  setInterval(updateBalance, 1000)
   $window.city = city
   gdpArray = ([10, 20, 50, 100].map (n) -> city.getGdp n)
 
-  $scope.gdpGrowth=
+  $scope.gdpGrowth =
     labels: ['Decade', '20 years', '50 years', 'Century']
     datasets: [
       { fillColor: '#7779Ed'
@@ -15,6 +21,15 @@ app.controller 'StatisticsCtrl', ['$resource', '$window', '$scope', 'city', 'cit
       pointStrokeColor: '#1D0169'
       data: gdpArray } 
     ]
+
+   $scope.itemChart =
+     [
+       {
+         value: 4,
+         color: "#d64343",
+         label: "Hello"
+       }
+     ]
 
    itemCounts = []
    addToCount = (item) ->
