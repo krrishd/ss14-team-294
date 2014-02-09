@@ -10,7 +10,7 @@
                 "CUBE": 1
             },
             "cost": 100,
-            "imageUrl": "" 
+            "imageUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQpSD3oGhiJf_liTubnx4PTR2ujIskVEkcM_SFGu59GAfvFYrD-dQ" 
         },
         {
             "name": "Tractor",
@@ -22,7 +22,7 @@
                 "CUBE": 1
             },
             "cost": 700, 
-            "imageUrl": "" 
+            "imageUrl": "http://www.mountainviewtractor.com/siteart/tractor.png" 
         },
         {
             "name": "Cow",
@@ -34,7 +34,7 @@
                 "CUBE": 1
             },
             "cost": 200,
-            "imageUrl": "" 
+            "imageUrl": "http://static4.wikia.nocookie.net/__cb20110412003059/creepypasta/images/f/fc/700cow.jpg" 
         },
         {
             "name": "Schoolhouse",
@@ -46,7 +46,7 @@
                 "CUBE": 1
             },
             "cost": 2000,
-            "imageUrl": "" 
+            "imageUrl": "http://www.touretown.com/Portals/0/schoolhouse%202.jpg" 
         },
         {
             "name": "Academy",
@@ -58,7 +58,7 @@
                 "CUBE": 4
             },
             "cost": 50000,
-            "imageUrl": "" 
+            "imageUrl": "http://static.tumblr.com/rrdxsng/57Im8nwp5/academy_picture.jpg" 
         },
         {
             "name": "Dirt Road",
@@ -70,7 +70,7 @@
                 "CUBE": 1
             },
             "cost": 500,
-            "imageUrl": "" 
+            "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/2/2c/Dirt_Road_SA.JPG" 
         },
         {
             "name": "Paved Road",
@@ -82,7 +82,7 @@
                 "CUBE": 1
             },
             "cost": 2000,
-            "imageUrl": "" 
+            "imageUrl": "http://www.mktpotential.com/images/PavedRoad1.png" 
         },
         {
             "name": "Corner Shop",
@@ -94,7 +94,7 @@
                 "CUBE": 1
             },
             "cost": 5000,
-            "imageUrl": "" 
+            "imageUrl": "http://tekstovi-pesama.com/g_img2/0/c/9346/cornershop-4.jpg" 
         },
         {
             "name": "Market",
@@ -106,7 +106,7 @@
                 "CUBE": 1
             },
             "cost": 2000,
-            "imageUrl": "" 
+            "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/4/48/Moore_Street_market,_Dublin.jpg" 
         },
         {
             "name": "Supermarket",
@@ -118,7 +118,7 @@
                 "CUBE": 1
             },
             "cost": 10000,
-            "imageUrl": "" 
+            "imageUrl": "http://bizmology.wpengine.netdna-cdn.com/wp-content/uploads/2012/04/supermarket.jpg" 
         },
         {
             "name": "Solar Panels",
@@ -130,7 +130,7 @@
                 "CUBE": 1
             },
             "cost": 500,
-            "imageUrl": "" 
+            "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/d/de/Nellis_AFB_Solar_panels.jpg" 
         },
         {
             "name": "Power Plant",
@@ -142,7 +142,7 @@
                 "CUBE": 1
             },
             "cost": 10000,
-            "imageUrl": "" 
+            "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/b/bb/Gundremmingen_Nuclear_Power_Plant.jpg" 
         },
         {
             "name": "Sewing Machine",
@@ -154,7 +154,7 @@
                 "CUBE": 1
             },
             "cost": 600,
-            "imageUrl": "" 
+            "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/e/e8/Singer_sewing_machine_detail1.jpg" 
         },
         {
             "name": "Milling Machine",
@@ -166,7 +166,7 @@
                 "CUBE": 1
             },
             "cost": 20000,
-            "imageUrl": "" 
+            "imageUrl": "http://previewcf.turbosquid.com/Preview/Content_2010_12_05__08_20_13/Milling_machine_tool_0005.jpgb74a3d7c-47c4-495c-ab34-e8b4fb9fa1c7Larger.jpg" 
         },
         {
             "name": "Factory",
@@ -178,7 +178,7 @@
                 "CUBE": 4
             },
             "cost": 200000,
-            "imageUrl": "" 
+            "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/2/29/Wolfsburg_Jun_2012_016_(Volkswagen_factory).JPG" 
         }
     ]
 }
