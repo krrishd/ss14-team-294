@@ -63,7 +63,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
         linTotal * Math.pow(years, gdpCoefficients.LIN) +
         quadTotal * Math.pow(years, gdpCoefficients.QUAD) +
         cubeTotal * Math.pow(years, gdpCoefficients.CUBE)
-      return total || 0
+      return Math.round(total) || 0
 
 
     # GDP intergrated
@@ -78,7 +78,7 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
         ((linTotal * Math.pow(years, gdpCoefficients.LIN + 1)) / 2) +
         ((quadTotal * Math.pow(years, gdpCoefficients.QUAD + 1)) / 3) +
         ((cubeTotal * Math.pow(years, gdpCoefficients.CUBE + 1)) / 4)
-      return total || 0
+      return Math.round(total) || 0
 
     getGdpCurrent: ->
       return @getGdp @getAge()

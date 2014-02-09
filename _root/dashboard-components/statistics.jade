@@ -1,4 +1,11 @@
 h1 Statistics
 
 strong Current Balance:
-| {{ h }}
+| {{ city.getGdpCurrent() }}
+
+input(type="range", ng-model="years", min=0, max=100)
+
+{{ years | gdp:city }}
+
+h2 Projected GDP growth: 
+canvas(data="gdpGrowth", width=500, height=300, linechart)
