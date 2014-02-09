@@ -45,9 +45,10 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
     # GDP intergrated
     getTotal: (years) ->
       # Retrieve the linear coefficient total
-      linTotal = @getElementTotal(gdpCoefficients.LIN)
-      quadTotal = @getElementTotal(gdpCoefficients.QUAD)
-      cubeTotal = @getElementTotal(gdpCoefficients.CUBE)     
+      linTotal = @getElementTotal('LIN')
+      quadTotal = @getElementTotal('QUAD')
+      cubeTotal = @getElementTotal('CUBE')     
+      
 
       total = 
         ((linTotal * Math.pow(years, gdpCoefficients.LIN + 1)) / 2) +
@@ -59,11 +60,11 @@ services.factory 'city', ['$window', 'gdpCoefficients', 'cityObject', ($window, 
       return @getGdp @getAge()
 
     getTotalCurrent: ->
-      return @getTotal @getAge()
+      return @getTotal @getAge() 
 
     getAge: ->
       today = new Date()
-      return (today() - @assets.creationDate) / (1000 * 60 * 60)
+      return (today - (new Date(@assets.creationDate))) / (1000 * 60 * 60)
 
     # Increases by 100 every year
     getPopulation: ->
